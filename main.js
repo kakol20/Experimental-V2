@@ -396,7 +396,7 @@ var medianIQR = function() {
 
 	var q1 = array[round(((array.length / 4) - 1), "up")];
 	var q3 = array[round((((array.length * 3) / 4) - 1), "up")];
-	var iqr = q3 - q1;
+	var iqr = round(q3 - q1, "round", 1);
 
 	var nthValueInArray = (array.length - 1) / 2;
 
