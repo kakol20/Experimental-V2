@@ -1,5 +1,5 @@
 # Experimental
-A script where I experiment with different 
+A script where I experiment with different algorithms
 
 #Test
 [![HTML Preview](https://img.shields.io/badge/Click%20to%20Preview-%20-blue.svg)](http://htmlpreview.github.io/?https://github.com/kakol20/Experimental-V2/blob/test/index.html)
