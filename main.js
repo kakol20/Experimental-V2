@@ -137,22 +137,16 @@ var timeTill = function() {
 		}
 	};
 
-	var date = prompt("Enter the future date, like this: October 13, 2014 11:13:00 (time is in 24 hour format)");
-	date = date || "March 14, 2017 15:26";
-
-	while (isString(date) === false) {
-		date = prompt("Enter the future date, like this: October 13, 2014 11:13:00 (time is in 24 hour format)");
-		date = date || "March 14, 2017 15:26";	
-	};
-
-	var futureDate = new Date(date);
+	var futureDate = "foo";
 	var currentDate = new Date();
+	
+	while (isNaN(futureDate) || (futureDate.getTime() <= currentDate.getTime())) {
+		var date = prompt("Enter the future date, like this: October 13, 2014 11:13:00 (time is in 24 hour format)");
+		date = date || "March 14, 2017 15:26";
 
-	while (isNaN(futureDate)) {
-		date = prompt("Enter the future date, like this: October 13, 2014 11:13:00 (time is in 24 hour format)");
-		date = date || "March 14, 2017 15:26";	
 		futureDate = new Date(date);
-	}
+		
+	};
 
 	var dayToConvert = inDays(futureDate, currentDate);
 	var day = convertRound(dayToConvert);
