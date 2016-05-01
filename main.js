@@ -6,20 +6,19 @@ var random = function(high, low) {
 };
 
 var round = function(num, type, decimalPlaces) {
-	type = type || "round";
+	type = type || "nearest";
 	decimalPlaces = decimalPlaces || 0;
 
 	if (type === "down") {
 		return Math.floor(num * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces);
 	} else if (type === "up") {
 		return Math.ceil(num * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces);
-	} else if (type === "round") {
+	} else if (type === "nearest") {
 		return Math.round(num * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces);
 	}
 };
 
 var isString = function(obj) {
-	//Does not have a use yet, but it's useful
 	return toString.call(obj) == '[object String]';
 };
 //end
@@ -41,6 +40,11 @@ var getPrimes = function() {
 
 	var max = prompt("Enter a positive number or leave blank for a random number");
 	max = max || round(random(Math.PI * 100, 50));
+
+	while (isString(max)) {
+		max = prompt("Enter a positive number or leave blank for a random number");
+		max = max || round(random(Math.PI * 100, 50));
+	};
 
 	var primes = [];
 	primes.push(2);
@@ -70,6 +74,11 @@ var convertHour = function() {
 	var hourToConvert = prompt("Enter a positive number or leave blank for a random number");
 	hourToConvert = hourToConvert || random(Math.PI * 100);
 
+	while (isString(hourToConvert)) {
+		hourToConvert = prompt("Enter a positive number or leave blank for a random number");
+		hourToConvert = hourToConvert || random(Math.PI * 100);
+	};
+
 	var dayToConvert = hourToConvert / 24;
 	var day = round(dayToConvert, "down");
 
@@ -79,7 +88,7 @@ var convertHour = function() {
 	var minuteToConvert = (hourToConvert - hour) * 60;
 	var minute = round(minuteToConvert, "down");
 
-	var second = round((minuteToConvert - minute) * 60, "round", 2);
+	var second = round((minuteToConvert - minute) * 60, "nearest", 2);
 	
 	if (day == 1) {
 		day = day + " day, ";
@@ -134,6 +143,12 @@ var timeTill = function() {
 	var futureDate = new Date(date);
 	var currentDate = new Date();
 
+	while (isNaN(futureDate)) {
+		date = prompt("Enter the future date, like this: October 13, 2014 11:13:00 (time is in 24 hour format)");
+		date = date || "March 14, 2017 15:26";	
+		futureDate = new Date(date);
+	};
+
 	var dayToConvert = inDays(futureDate, currentDate);
 	var day = convertRound(dayToConvert);
 
@@ -143,7 +158,7 @@ var timeTill = function() {
 	var minuteToConvert = (hourToConvert - hour) * 60;
 	var minute = convertRound(minuteToConvert);
 
-	var second = round((minuteToConvert - minute) * 60, "round", 2);
+	var second = round((minuteToConvert - minute) * 60, "nearest", 2);
 
 	if (day == 1) {
 		day = day + " day, ";
@@ -183,11 +198,19 @@ var mathTrick = function() {
 		return total - ((total - diff) / 2);
 	};
 
-	var total = prompt("Think of two numbers. Calculate the total and the difference. Enter the total");
-	var diff = prompt("Enter the difference");
+	var total = prompt("Think of two numbers. Calculate the total and the difference. Enter the total or leave blank for a random number");
+	var diff = prompt("Enter the difference or leave blank for a random number");
 
 	total = total || round(random(100));
 	diff = diff || round(random(50));
+
+	while (isString(timeTill) || isString(diff)) {
+		total = prompt("Think of two numbers. Calculate the total and the difference. Enter the total or leave blank for a random number");
+		total = total || round(random(100));
+
+		diff = prompt("Enter the difference or leave blank for a random number");
+		diff = diff || round(random(50)); 
+	};
 
 	var numbers = [num1(total, diff), num2(total, diff)];
 
@@ -210,8 +233,15 @@ var denaryToBinary = function() {
 	var n = prompt("Enter a positive number or leave empty for a random number");
 	n = n || round(random(255));
 
-	if (n >= 256) {
+	while (isString(n)) {
+		n = prompt("Enter a positive number or leave empty for a random number");
+		n = n || round(random(255));
+	};
+
+	if (n > 255) {
 		document.getElementById('binary').innerHTML = "Overflow Error";
+	}else if ((n % 1) != 0) {
+		document.getElementById('binary').innerHTML = "Invalid Integer";
 	} else {
 		if (n >= 128) {
 			n128 = "1";
@@ -285,6 +315,11 @@ var partitions = function() {
 	
 	var num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
 	num = num || round(random(114));
+
+	while (isString(num)) {
+		num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
+		num = num || round(random(114));	
+	};
 
 	var part1 = 4 * num * sqrt(3);
 	var part2 = Math.PI * sqrt((2 * num) / 3);
@@ -377,9 +412,19 @@ var medianIQR = function() {
 	var randomArrayLength = prompt("Enter the length of the array you want to generate or leave empty for a random number");
 	randomArrayLength = randomArrayLength || round(random(15, 5));	
 
+	while (isString(randomArrayLength)) {
+		randomArrayLength = prompt("Enter the length of the array you want to generate or leave empty for a random number");
+		randomArrayLength = randomArrayLength || round(random(15, 5));	
+	};
+
 	var randomArrayMax = prompt("Enter the maximum of the array you want to generate or leave empty for a random number");
 	randomArrayMax = randomArrayMax || round(random(15, 10));
 
+	while (isString(randomArrayMax)) {
+		randomArrayMax = prompt("Enter the maximum of the array you want to generate or leave empty for a random number");
+		randomArrayMax = randomArrayMax || round(random(15, 10));
+	};
+	
 	var array = [];
 
 	for (var d = 1; d <= round(randomArrayLength); d++) {
@@ -390,7 +435,7 @@ var medianIQR = function() {
 
 	var q1 = array[round(((array.length / 4) - 1), "up")];
 	var q3 = array[round((((array.length * 3) / 4) - 1), "up")];
-	var iqr = round(q3 - q1, "round", 1);
+	var iqr = round(q3 - q1, "nearest", 1);
 
 	var nthValueInArray = (array.length - 1) / 2;
 
