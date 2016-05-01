@@ -197,12 +197,6 @@ var mathTrick = function() {
 };
 
 var denaryToBinary = function() {
-	var random = function(high, low) {
-		low = low || 0;
-		diff = high - low;
-		return (Math.random() * diff) + low;
-	};
-
 	var n1;
 	var n2;
 	var n4;
@@ -336,19 +330,19 @@ var factorableQuadratic = function() {
 	var d = 0;
 
 	while (a === 0) {
-		a = round(random(-15,15));
+		a = round(random(15, -15));
 	}
 
 	while (b === 0) {
-		b = round(random(-15,15));
+		b = round(random(15, -15));
 	}
 
 	while (c === 0) {
-		c = round(random(-15,15));
+		c = round(random(15, -15));
 	}
     
 	while (d === 0) {
-		d = round(random(-15,15));
+		d = round(random(15,-15));
 	}
 
 	var aX = xValue4Factored(a);
@@ -384,19 +378,19 @@ var medianIQR = function() {
 	randomArrayLength = randomArrayLength || round(random(15, 5));	
 
 	var randomArrayMax = prompt("Enter the maximum of the array you want to generate or leave empty for a random number");
-	randomArrayMax = randomArrayMax || round(random(15, 5));
+	randomArrayMax = randomArrayMax || round(random(15, 10));
 
 	var array = [];
 
 	for (var d = 1; d <= round(randomArrayLength); d++) {
-		array.push(round(random(0, randomArrayMax), "up", 1));
+		array.push(round(random(randomArrayMax), "up", 1));
 	}
 
 	array.sort(sortArray);
 
 	var q1 = array[round(((array.length / 4) - 1), "up")];
 	var q3 = array[round((((array.length * 3) / 4) - 1), "up")];
-	var iqr = q3 - q1;
+	var iqr = round(q3 - q1, "round", 1);
 
 	var nthValueInArray = (array.length - 1) / 2;
 
