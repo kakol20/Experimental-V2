@@ -44,7 +44,7 @@ var getPrimes = function() {
 	while (isString(max)) {
 		max = prompt("Enter a positive number or leave blank for a random number");
 		max = max || round(random(Math.PI * 100, 50));
-	};
+	}
 
 	var primes = [];
 	primes.push(2);
@@ -77,7 +77,7 @@ var convertHour = function() {
 	while (isString(hourToConvert)) {
 		hourToConvert = prompt("Enter a positive number or leave blank for a random number");
 		hourToConvert = hourToConvert || random(Math.PI * 100);
-	};
+	}
 
 	var dayToConvert = hourToConvert / 24;
 	var day = round(dayToConvert, "down");
@@ -147,7 +147,7 @@ var timeTill = function() {
 		date = prompt("Enter the future date, like this: October 13, 2014 11:13:00 (time is in 24 hour format)");
 		date = date || "March 14, 2017 15:26";	
 		futureDate = new Date(date);
-	};
+	}
 
 	var dayToConvert = inDays(futureDate, currentDate);
 	var day = convertRound(dayToConvert);
@@ -210,7 +210,7 @@ var mathTrick = function() {
 
 		diff = prompt("Enter the difference or leave blank for a random number");
 		diff = diff || round(random(50)); 
-	};
+	}
 
 	var numbers = [num1(total, diff), num2(total, diff)];
 
@@ -236,11 +236,11 @@ var denaryToBinary = function() {
 	while (isString(n)) {
 		n = prompt("Enter a positive number or leave empty for a random number");
 		n = n || round(random(255));
-	};
+	}
 
 	if (n > 255) {
 		document.getElementById('binary').innerHTML = "Overflow Error";
-	}else if ((n % 1) != 0) {
+	} else if ((n % 1) !== 0) {
 		document.getElementById('binary').innerHTML = "Invalid Integer";
 	} else {
 		if (n >= 128) {
@@ -319,7 +319,7 @@ var partitions = function() {
 	while (isString(num)) {
 		num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
 		num = num || round(random(114));	
-	};
+	}
 
 	var part1 = 4 * num * sqrt(3);
 	var part2 = Math.PI * sqrt((2 * num) / 3);
@@ -415,15 +415,15 @@ var medianIQR = function() {
 	while (isString(randomArrayLength)) {
 		randomArrayLength = prompt("Enter the length of the array you want to generate or leave empty for a random number");
 		randomArrayLength = randomArrayLength || round(random(15, 5));	
-	};
-
+	}
+    
 	var randomArrayMax = prompt("Enter the maximum of the array you want to generate or leave empty for a random number");
 	randomArrayMax = randomArrayMax || round(random(15, 10));
 
 	while (isString(randomArrayMax)) {
 		randomArrayMax = prompt("Enter the maximum of the array you want to generate or leave empty for a random number");
 		randomArrayMax = randomArrayMax || round(random(15, 10));
-	};
+	}
 	
 	var array = [];
 
