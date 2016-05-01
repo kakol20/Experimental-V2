@@ -7,4 +7,4 @@ A script where I experiment with different
 [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/fold_left.svg?style=social&label=Follow%20%40The Banana Guy)](https://twitter.com/the_banana_guy_)
 
 #Info
-Will be adding dev branch to test an algorithm and once it's finish I will merge it to master
+Will be adding test branch to test an algorithm and once it's finish I will merge it to master
