@@ -140,6 +140,11 @@ var timeTill = function() {
 	var date = prompt("Enter the future date, like this: October 13, 2014 11:13:00 (time is in 24 hour format)");
 	date = date || "March 14, 2017 15:26";
 
+	while (isString(date) === false) {
+		date = prompt("Enter the future date, like this: October 13, 2014 11:13:00 (time is in 24 hour format)");
+		date = date || "March 14, 2017 15:26";	
+	};
+
 	var futureDate = new Date(date);
 	var currentDate = new Date();
 
