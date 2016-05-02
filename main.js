@@ -1,8 +1,16 @@
 //Necessary functions for all ( .Y .) <-- Totally eyes
 var random = function(high, low) {
-	low = low || 0;
-	diff = high - low;
-	return (Math.random() * diff) + low;
+	if (isString(high)) {
+		console.log("Invalid high parameter");
+		return "Invalid";
+	} else if (isString(low)) {
+		console.log("Invalid low parameter");
+		return "Invalid";
+	} else {
+		low = low || 0;
+		diff = high - low;
+		return (Math.random() * diff) + low;	
+	} 	
 };
 
 var round = function(num, type, decimalPlaces) {
@@ -78,7 +86,7 @@ var getPrimes = function() {
 
 var convertHour = function() {
 	var hourToConvert = prompt("Enter a positive number or leave blank for a random number");
-	hourToConvert = hourToConvert || random(Math.PI * 100);
+	hourToConvert = hourToConvert || random(12 * 4.34524 * 7 * 24);
 
 	while (isString(hourToConvert)) {
 		hourToConvert = prompt("Enter a positive number or leave blank for a random number");
@@ -86,6 +94,11 @@ var convertHour = function() {
 	}
 
 	var dayToConvert = hourToConvert / 24;
+	
+	var weekToConvert = dayToConvert / 7;
+	var week = round(weekToConvert, "down");
+
+	dayToConvert = (dayToConvert - (week * 7));
 	var day = round(dayToConvert, "down");
 
 	hourToConvert = (dayToConvert - day) * 24;
@@ -95,6 +108,12 @@ var convertHour = function() {
 	var minute = round(minuteToConvert, "down");
 
 	var second = round((minuteToConvert - minute) * 60, "nearest", 2);
+
+	if (week == 1) {
+		week = week + " week, ";
+	} else {
+		week = week + " weeks, ";
+	}
 
 	if (day == 1) {
 		day = day + " day, ";
@@ -120,9 +139,9 @@ var convertHour = function() {
 		second = second + " seconds.";
 	}
 
-	var converted = [day, hour, minute, second];
+	var converted = [week, day, hour, minute, second];
 
-	document.getElementById('converted').innerHTML = converted[0] + converted[1] + converted[2] + converted[3];
+	document.getElementById('converted').innerHTML = converted[0] + converted[1] + converted[2] + converted[3] + converted[4];
 };
 
 var timeTill = function() {
@@ -155,13 +174,19 @@ var timeTill = function() {
 
 			var randomisedDate = random(date, currentDate.getTime());
 
-			futureDate = new Date(randomisedDate);
+			futureDate = new Date(date);
+			//alert(futureDate);
 		} else {
 			futureDate = new Date(date);
 		}                
 	}
 
 	var dayToConvert = inDays(futureDate, currentDate);   
+	
+	var weekToConvert = dayToConvert / 7;
+	var week = convertRound(weekToConvert);
+
+	dayToConvert = dayToConvert - (week * 7) ;
 	var day = convertRound(dayToConvert);
 
 	var hourToConvert = (dayToConvert - day) * 24;
@@ -171,6 +196,12 @@ var timeTill = function() {
 	var minute = convertRound(minuteToConvert);
 
 	var second = round((minuteToConvert - minute) * 60, "nearest", 2);
+	
+	if (week == 1 ) {
+		week = week + " week, ";
+	} else {
+		day = day + " weeks, ";
+	}
 
 	if (day == 1) {
 		day = day + " day, ";
@@ -196,9 +227,9 @@ var timeTill = function() {
 		second = second + " seconds left till " + futureDate + ".";
 	}
 
-	var converted = [day, hour, minute, second];
+	var converted = [week, day, hour, minute, second];
 
-	document.getElementById('timeTill').innerHTML = converted[0] + converted[1] + converted[2] + converted[3];
+	document.getElementById('timeTill').innerHTML = converted[0] + converted[1] + converted[2] + converted[3] + converted[4];
 };
 
 var mathTrick = function() {
@@ -466,8 +497,7 @@ var medianIQR = function() {
 /*
 TODO List - 
 1. Enchancement {
-	a. Add weeks
-	b. Times days by 7
+	a. None
 }
 2. None 
 */
