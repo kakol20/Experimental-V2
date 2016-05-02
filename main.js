@@ -1,6 +1,469 @@
-eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('9 17=25(154,86){86=86||0;42=154-86;23(35.17()*42)+86};9 20=25(12,69,55){69=69||"81";55=55||0;19(69==="79"){23 35.197(12*35.73(10,55))/35.73(10,55)}21 19(69==="78"){23 35.194(12*35.73(10,55))/35.73(10,55)}21 19(69==="81"){23 35.20(12*35.73(10,55))/35.73(10,55)}21{183.181("153 182 69")}};9 56=25(120){23 95.187(120)==\'[193 204]\'};9 142=25(18,45){23 18-45};9 116=25(){205.116()};9 196=25(){9 140=25(12){29(9 18=2;18<=35.85(12);18++){19((12%18)===0){23 0}}23 1};9 57=36("37 18 75 22 39 41 63 29 18 17 22");57=57||20(17(35.88*100,50));46(56(57)){57=36("37 18 75 22 39 41 63 29 18 17 22");57=57||20(17(35.88*100,50))}9 59=[];59.112(2);29(9 45=3;45<=57;45++){19(140(45)==1){59.112(45)}}9 58="";29(9 44=0;44<59.67;44++){19(44===0){58=59[0].95()+", "}21 19(44==59.67-1){58=58+59[44].95()}21{58=58+59[44].95()+", "}}52.53(\'59\').51=58};9 163=25(){9 43=36("37 18 75 22 39 41 63 29 18 17 22");43=43||17(35.88*100);46(56(43)){43=36("37 18 75 22 39 41 63 29 18 17 22");43=43||17(35.88*100)}9 76=43/24;9 31=20(76,"79");43=(76-31)*24;9 30=20(43,"79");9 80=(43-30)*60;9 34=20(80,"79");9 40=20((80-34)*60,"81",2);19(31==1){31=31+" 31, "}21{31=31+" 139, "}19(30==1){30=30+" 30, "}21{30=30+" 138, "}19(34==1){34=34+" 34 61 "}21{34=34+" 126 61 "}19(40==1){40=40+" 40."}21{40=40+" 136."}9 49=[31,30,34,40];52.53(\'49\').51=49[0]+49[1]+49[2]+49[3]};9 107=25(){9 134=25(131,133){9 123=131.92();9 132=133.92();23(123-132)/(24*169*170)};9 91=25(12){19(12>0){23 20(12,"79")}21 19(12<0){23 20(12,"78")}};9 68="168";9 110=127 129();46(167(68)||(68.92()<=110.92())){9 82=36("37 28 166 82, 171 172: 177 13, 178 11:13:175 (164 70 173 24 30 174)");82=82||"179 14, 161 15:26";68=127 129(82)}9 76=134(68,110);9 31=91(76);9 43=(76-31)*24;9 30=91(43);9 80=(43-30)*60;9 34=91(80);9 40=20((80-34)*60,"81",2);19(31==1){31=31+" 31, "}21{31=31+" 139, "}19(30==1){30=30+" 30, "}21{30=30+" 138, "}19(34==1){34=34+" 34 61 "}21{34=34+" 126 61 "}19(40==1){40=40+" 40 137 141 "+68+"."}21{40=40+" 136 137 141 "+68+"."}9 49=[31,30,34,40];52.53(\'107\').51=49[0]+49[1]+49[2]+49[3]};9 203=25(){9 121=25(38,42){23(38-42)/2};9 124=25(38,42){23 38-((38-42)/2)};9 38=36("115 48 118 87. 125 28 38 61 28 93. 37 28 38 39 41 63 29 18 17 22");9 42=36("37 28 93 39 41 63 29 18 17 22");38=38||20(17(100));42=42||20(17(50));46(56(107)||56(42)){38=36("115 48 118 87. 125 28 38 61 28 93. 37 28 38 39 41 63 29 18 17 22");38=38||20(17(100));42=36("37 28 93 39 41 63 29 18 17 22");42=42||20(17(50))}9 87=[121(38,42),124(38,42)];9 111="192 191 190 48 "+87[0]+" 61 "+87[1]+".";52.53(\'111\').51=111};9 189=25(){9 90;9 102;9 98;9 103;9 99;9 101;9 97;9 96;9 27=36("37 18 75 22 39 41 62 29 18 17 22");27=27||20(17(109));46(56(27)){27=36("37 18 75 22 39 41 62 29 18 17 22");27=27||20(17(109))}19(27>109){52.53(\'47\').51="198 188"}21 19((27%1)!==0){52.53(\'47\').51="153 186"}21{19(27>=128){96="1";27-=128}21{96="0"}19(27>=64){97="1";27-=64}21{97="0"}19(27>=32){101="1";27-=32}21{101="0"}19(27>=16){99="1";27-=16}21{99="0"}19(27>=8){103="1";27-=8}21{103="0"}19(27>=4){98="1";27-=4}21{98="0"}19(27>=2){102="1";27-=2}21{102="0"}19(27>=1){90="1"}21{90="0"}9 47=[96,97,101,99,103,98,102,90];52.53(\'47\').51=47[0]+47[1]+47[2]+47[3]+" "+47[4]+47[5]+47[6]+47[7]}};9 94=25(){9 108=25(12){23 35.108(12)};9 85=25(12){23 35.85(12)};9 12=36("37 18 22 74 77 71 159 28 157 22 48 94 48, 39 41 62 29 18 17 22");12=12||20(17(114));46(56(12)){12=36("37 18 22 74 77 71 159 28 157 22 48 94 48, 39 41 62 29 18 17 22");12=12||20(17(114))}9 152=4*12*85(3);9 145=35.88*85((2*12)/3);9 143=(1/152)*108(145);52.53(\'94\').51=20(143)};9 176=25(){9 84=25(12){19(12>0){23"+ "+12}21 19(12<0){23"- "+(12*-1)}};9 156=25(12){19(12===1){23"+ 72"}21 19(12===-1){23"- 72"}21{23 84(12)+"72"}};9 113=25(12){19(12===1){23"72"}21 19(12===-1){23"-72"}21{23 12+"72"}};9 18=0;9 45=0;9 44=0;9 54=0;46(18===0){18=20(17(15,-15))}46(45===0){45=20(17(15,-15))}46(44===0){44=20(17(15,-15))}46(54===0){54=20(17(15,-15))}9 155=113(18);9 122=84(45);9 148=113(44);9 160=84(54);9 150="("+155+" "+122+")("+148+" "+160+")";9 149=18*44;9 158=156((18*54)+(45*44));9 151=84(45*54);9 144=149+"72^2 "+158+" "+151;52.53(\'195\').51=144+" 71 "+150};9 200=25(){9 117=25(12){19((12%1)===0){23 201}21{23 202}};9 65=36("37 28 67 48 28 33 74 77 71 104 39 41 62 29 18 17 22");65=65||20(17(15,5));46(56(65)){65=36("37 28 67 48 28 33 74 77 71 104 39 41 62 29 18 17 22");65=65||20(17(15,5))}9 66=36("37 28 147 48 28 33 74 77 71 104 39 41 62 29 18 17 22");66=66||20(17(15,10));46(56(66)){66=36("37 28 147 48 28 33 74 77 71 104 39 41 62 29 18 17 22");66=66||20(17(15,10))}9 33=[];29(9 54=1;54<=20(65);54++){33.112(20(17(66),"78",1))}33.184(142);9 106=33[20(((33.67/4)-1),"78")];9 105=33[20((((33.67*3)/4)-1),"78")];9 130=20(105-106,"81",1);9 89=(33.67-1)/2;9 83=0;19(117(89)){83=(33[20(89,"79")]+33[20(89,"78")])/2}21{83=33[89]}9 119=33[33.67-1];9 146=33[0];9 58="135 83 70 "+83+", 199 70 "+106+", 206 70 "+105+" 61 28 162 165 70 "+130+". 135 57 70 "+119+" 61 28 185 70 "+146;52.53(\'180\').51=58};',10,207,'|||||||||var|||num|||||random|a|if|round|else|number|return||function||n|the|for|hour|day||array|minute|Math|prompt|Enter|total|or|second|leave|diff|hourToConvert|c|b|while|binary|of|converted||innerHTML|document|getElementById|d|decimalPlaces|isString|max|output|primes||and|empty|blank||randomArrayLength|randomArrayMax|length|futureDate|type|is|to|x|pow|you|positive|dayToConvert|want|up|down|minuteToConvert|nearest|date|median|plusOrMinus|sqrt|low|numbers|PI|nthValueInArray|n1|convertRound|getTime|difference|partitions|toString|n128|n64|n4|n16||n32|n2|n8|generate|q3|q1|timeTill|exp|255|currentDate|guess|push|xValue4Factored||Think|reload|isDecimal|two|maxArray|obj|num1|bX|t1|num2|Calculate|minutes|new||Date|iqr|d1|t2|d2|inDays|The|seconds|left|hours|days|isPrime|till|sortArrayNumber|result|quadratic|part2|minArray|maximum|cX|ac|factored|bd|part1|Invalid|high|aX|xValue4Quadratic|approximate|adbc|find|dX|2017|interquartile|convertHour|time|range|future|isNaN|foo|3600|1000|like|this|in|format|00|factorableQuadratic|October|2014|March|IQR|log|decimal|console|sort|min|Integer|call|Error|denaryToBinary|thinking|were|You|object|ceil|factorable|getPrimes|floor|Overflow|Q1|medianIQR|false|true|mathTrick|String|location|Q3'.split('|'),0,{}))
+//Necessary functions for all
+var random = function(high, low) {
+    low = low || 0;
+    diff = high - low;
+    return (Math.random() * diff) + low;
+};
+
+var round = function(num, type, decimalPlaces) {
+    type = type || "nearest";
+    decimalPlaces = decimalPlaces || 0;
+
+    if (type === "down") {
+        return Math.floor(num * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces);
+    } else if (type === "up") {
+        return Math.ceil(num * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces);
+    } else if (type === "nearest") {
+        return Math.round(num * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces);
+    } else {
+        console.log("Invalid decimal type");
+    }
+};
+
+var isString = function(obj) {
+    return toString.call(obj) == '[object String]';
+};
+
+var sortArrayNumber = function(a, b) {
+    return a - b;
+};
+//end
+
+var reload = function() {
+    location.reload();
+};
+
+var getPrimes = function() {
+    var isPrime = function(num) {
+        for (var a = 2; a <= Math.sqrt(num); a++) {
+            if ((num % a) === 0) {
+                return 0;
+            }
+        }
+        return 1;
+    };
+    //Somehow using return true;  and return false; doesn't work
+
+    var max = prompt("Enter a positive number or leave blank for a random number");
+    max = max || round(random(Math.PI * 100, 50));
+
+    while (isString(max)) {
+        max = prompt("Enter a positive number or leave blank for a random number");
+        max = max || round(random(Math.PI * 100, 50));
+    }
+
+    var primes = [];
+    primes.push(2);
+
+    for (var b = 3; b <= max; b++) {
+        if (isPrime(b) == 1) {
+            primes.push(b);
+        }
+    }
+
+    var output = "";
+
+    for (var c = 0; c < primes.length; c++) {
+        if (c === 0) {
+            output = primes[0].toString() + ", ";
+        } else if (c == primes.length - 1) {
+            output = output + primes[c].toString();
+        } else {
+            output = output + primes[c].toString() + ", ";
+        }
+    }
+
+    document.getElementById('primes').innerHTML = output;
+};
+
+var convertHour = function() {
+    var hourToConvert = prompt("Enter a positive number or leave blank for a random number");
+    hourToConvert = hourToConvert || random(Math.PI * 100);
+
+    while (isString(hourToConvert)) {
+        hourToConvert = prompt("Enter a positive number or leave blank for a random number");
+        hourToConvert = hourToConvert || random(Math.PI * 100);
+    }
+
+    var dayToConvert = hourToConvert / 24;
+    var day = round(dayToConvert, "down");
+
+    hourToConvert = (dayToConvert - day) * 24;
+    var hour = round(hourToConvert, "down");
+
+    var minuteToConvert = (hourToConvert - hour) * 60;
+    var minute = round(minuteToConvert, "down");
+
+    var second = round((minuteToConvert - minute) * 60, "nearest", 2);
+
+    if (day == 1) {
+        day = day + " day, ";
+    } else {
+        day = day + " days, ";
+    }
+
+    if (hour == 1) {
+        hour = hour + " hour, ";
+    } else {
+        hour = hour + " hours, ";
+    }
+
+    if (minute == 1) {
+        minute = minute + " minute and ";
+    } else {
+        minute = minute + " minutes and ";
+    }
+
+    if (second == 1) {
+        second = second + " second.";
+    } else {
+        second = second + " seconds.";
+    }
+
+    var converted = [day, hour, minute, second];
+
+    document.getElementById('converted').innerHTML = converted[0] + converted[1] + converted[2] + converted[3];
+};
+
+var timeTill = function() {
+    //http://ditio.net/2010/05/02/javascript-date-difference-calculation/
+
+    var inDays = function(d1, d2) {
+        var t1 = d1.getTime();
+        var t2 = d2.getTime();
+
+        return (t1 - t2) / (24 * 3600 * 1000);
+    };
+
+    var convertRound = function(num) {
+        if (num > 0) {
+            return round(num, "down");
+        } else if (num < 0) {
+            return round(num, "up");
+        }
+    };
+
+    var futureDate = "foo";
+    var currentDate = new Date();
+
+    while (isNaN(futureDate) || (futureDate.getTime() <= currentDate.getTime())) {
+        var date = prompt("Enter the future date, like this: October 13, 2014 11:13:00 (time is in 24 hour format)");
+        date = date || "random";
+
+        if (date === "random") {
+        	var high = new Date("December 31, 2016 23:59");
+
+        	var randomisedDate = random(high.getTime(), currentDate.getTime());
+
+        	futureDate = new Date(randomisedDate)
+        } else {
+        	futureDate = new Date(date);
+        }                
+    }
+
+    var dayToConvert = inDays(futureDate, currentDate);   
+    var day = convertRound(dayToConvert);
+
+    var hourToConvert = (dayToConvert - day) * 24;
+    var hour = convertRound(hourToConvert);
+
+    var minuteToConvert = (hourToConvert - hour) * 60;
+    var minute = convertRound(minuteToConvert);
+
+    var second = round((minuteToConvert - minute) * 60, "nearest", 2);
+
+    if (day == 1) {
+        day = day + " day, ";
+    } else {
+        day = day + " days, ";
+    }
+
+    if (hour == 1) {
+        hour = hour + " hour, ";
+    } else {
+        hour = hour + " hours, ";
+    }
+
+    if (minute == 1) {
+        minute = minute + " minute and ";
+    } else {
+        minute = minute + " minutes and ";
+    }
+
+    if (second == 1) {
+        second = second + " second left till " + futureDate + ".";
+    } else {
+        second = second + " seconds left till " + futureDate + ".";
+    }
+
+    var converted = [day, hour, minute, second];
+
+    document.getElementById('timeTill').innerHTML = converted[0] + converted[1] + converted[2] + converted[3];
+};
+
+var mathTrick = function() {
+    var num1 = function(total, diff) {
+        return (total - diff) / 2;
+    };
+
+    var num2 = function(total, diff) {
+        return total - ((total - diff) / 2);
+    };
+
+    var total = prompt("Think of two numbers. Calculate the total and the difference. Enter the total or leave blank for a random number");
+    var diff = prompt("Enter the difference or leave blank for a random number");
+
+    total = total || round(random(100));
+    diff = diff || round(random(50));
+
+    while (isString(timeTill) || isString(diff)) {
+        total = prompt("Think of two numbers. Calculate the total and the difference. Enter the total or leave blank for a random number");
+        total = total || round(random(100));
+
+        diff = prompt("Enter the difference or leave blank for a random number");
+        diff = diff || round(random(50));
+    }
+
+    var numbers = [num1(total, diff), num2(total, diff)];
+
+    var guess = "You were thinking of " + numbers[0] + " and " + numbers[1] + ".";
+
+    document.getElementById('guess').innerHTML = guess;
+};
+
+var denaryToBinary = function() {
+    var n1;
+    var n2;
+    var n4;
+    var n8;
+
+    var n16;
+    var n32;
+    var n64;
+    var n128;
+
+    var n = prompt("Enter a positive number or leave empty for a random number");
+    n = n || round(random(255));
+
+    while (isString(n)) {
+        n = prompt("Enter a positive number or leave empty for a random number");
+        n = n || round(random(255));
+    }
+
+    if (n > 255) {
+        document.getElementById('binary').innerHTML = "Overflow Error";
+    } else if ((n % 1) !== 0) {
+        document.getElementById('binary').innerHTML = "Invalid Integer";
+    } else {
+        if (n >= 128) {
+            n128 = "1";
+            n -= 128;
+        } else {
+            n128 = "0";
+        }
+
+        if (n >= 64) {
+            n64 = "1";
+            n -= 64;
+        } else {
+            n64 = "0";
+        }
+
+        if (n >= 32) {
+            n32 = "1";
+            n -= 32;
+        } else {
+            n32 = "0";
+        }
+
+        if (n >= 16) {
+            n16 = "1";
+            n -= 16;
+        } else {
+            n16 = "0";
+        }
+
+        if (n >= 8) {
+            n8 = "1";
+            n -= 8;
+        } else {
+            n8 = "0";
+        }
+
+        if (n >= 4) {
+            n4 = "1";
+            n -= 4;
+        } else {
+            n4 = "0";
+        }
+
+        if (n >= 2) {
+            n2 = "1";
+            n -= 2;
+        } else {
+            n2 = "0";
+        }
+
+        if (n >= 1) {
+            n1 = "1";
+        } else {
+            n1 = "0";
+        }
+
+        var binary = [n128, n64, n32, n16, n8, n4, n2, n1];
+
+        document.getElementById('binary').innerHTML = binary[0] + binary[1] + binary[2] + binary[3] + " " + binary[4] + binary[5] + binary[6] + binary[7];
+    }
+};
+
+var partitions = function() {
+    var exp = function(num) {
+        return Math.exp(num);
+    };
+
+    var sqrt = function(num) {
+        return Math.sqrt(num);
+    };
+
+    var num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
+    num = num || round(random(114));
+
+    while (isString(num)) {
+        num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
+        num = num || round(random(114));
+    }
+
+    var part1 = 4 * num * sqrt(3);
+    var part2 = Math.PI * sqrt((2 * num) / 3);
+
+    var result = (1 / part1) * exp(part2);
+
+    document.getElementById('partitions').innerHTML = round(result);
+
+};
+
+var factorableQuadratic = function() {
+    var plusOrMinus = function(num) {
+        if (num > 0) {
+            return "+ " + num;
+        } else if (num < 0) {
+            return "- " + (num * -1);
+        }
+    };
+
+    var xValue4Quadratic = function(num) {
+        if (num === 1) {
+            return "+ x";
+        } else if (num === -1) {
+            return "- x";
+        } else {
+            return plusOrMinus(num) + "x";
+        }
+    };
+
+    var xValue4Factored = function(num) {
+        if (num === 1) {
+            return "x";
+        } else if (num === -1) {
+            return "-x";
+        } else {
+            return num + "x";
+        }
+    };
+
+    var a = 0;
+    var b = 0;
+    var c = 0;
+    var d = 0;
+
+    while (a === 0) {
+        a = round(random(15, -15));
+    }
+
+    while (b === 0) {
+        b = round(random(15, -15));
+    }
+
+    while (c === 0) {
+        c = round(random(15, -15));
+    }
+
+    while (d === 0) {
+        d = round(random(15, -15));
+    }
+
+    var aX = xValue4Factored(a);
+    var bX = plusOrMinus(b);
+    var cX = xValue4Factored(c);
+    var dX = plusOrMinus(d);
+
+    var factored = "(" + aX + " " + bX + ")(" + cX + " " + dX + ")";
+
+    var ac = a * c;
+    var adbc = xValue4Quadratic((a * d) + (b * c));
+    var bd = plusOrMinus(b * d);
+
+    var quadratic = ac + "x^2 " + adbc + " " + bd;
+
+    document.getElementById('factorable').innerHTML = quadratic + " to " + factored;
+};
+
+var medianIQR = function() {
+    var isDecimal = function(num) {
+        if ((num % 1) === 0) {
+            return false;
+        } else {
+            return true;
+        }
+    };
+
+    var randomArrayLength = prompt("Enter the length of the array you want to generate or leave empty for a random number");
+    randomArrayLength = randomArrayLength || round(random(15, 5));
+
+    while (isString(randomArrayLength)) {
+        randomArrayLength = prompt("Enter the length of the array you want to generate or leave empty for a random number");
+        randomArrayLength = randomArrayLength || round(random(15, 5));
+    }
+
+    var randomArrayMax = prompt("Enter the maximum of the array you want to generate or leave empty for a random number");
+    randomArrayMax = randomArrayMax || round(random(15, 10));
+
+    while (isString(randomArrayMax)) {
+        randomArrayMax = prompt("Enter the maximum of the array you want to generate or leave empty for a random number");
+        randomArrayMax = randomArrayMax || round(random(15, 10));
+    }
+
+    var array = [];
+
+    for (var d = 1; d <= round(randomArrayLength); d++) {
+        array.push(round(random(randomArrayMax), "up", 1));
+    }
+
+    array.sort(sortArrayNumber);
+
+    var q1 = array[round(((array.length / 4) - 1), "up")];
+    var q3 = array[round((((array.length * 3) / 4) - 1), "up")];
+    var iqr = round(q3 - q1, "nearest", 1);
+
+    var nthValueInArray = (array.length - 1) / 2;
+
+    var median = 0;
+
+    if (isDecimal(nthValueInArray)) {
+        median = (array[round(nthValueInArray, "down")] + array[round(nthValueInArray, "up")]) / 2;
+    } else {
+        median = array[nthValueInArray];
+    }
+
+    var maxArray = array[array.length - 1];
+    var minArray = array[0];
+
+    var output = "The median is " + median + ", Q1 is " + q1 + ", Q3 is " + q3 + " and the interquartile range is " + iqr + ". The max is " + maxArray + " and the min is " + minArray;
+
+    document.getElementById('IQR').innerHTML = output;
+};
 
 /*
-TODO - 
+TODO List - 
 1. None
 */
