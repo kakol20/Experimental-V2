@@ -155,7 +155,7 @@ var timeTill = function() {
 
         	var randomisedDate = random(high, currentDate.getTime());
 
-        	futureDate = new Date(randomisedDate)
+        	futureDate = new Date(randomisedDate);
         } else {
         	futureDate = new Date(date);
         }                
