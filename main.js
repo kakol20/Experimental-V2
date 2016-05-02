@@ -15,6 +15,8 @@ var round = function(num, type, decimalPlaces) {
 		return Math.ceil(num * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces);
 	} else if (type === "nearest") {
 		return Math.round(num * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces);
+	} else {
+		console.log("Invalid decimal type");
 	}
 };
 
@@ -89,7 +91,7 @@ var convertHour = function() {
 	var minute = round(minuteToConvert, "down");
 
 	var second = round((minuteToConvert - minute) * 60, "nearest", 2);
-	
+
 	if (day == 1) {
 		day = day + " day, ";
 	} else {
@@ -126,7 +128,7 @@ var timeTill = function() {
 		var t1 = d1.getTime();
 		var t2 = d2.getTime();
 
-		return (t1 - t2) / (24*3600*1000);
+		return (t1 - t2) / (24 * 3600 * 1000);
 	};
 
 	var convertRound = function(num) {
@@ -139,14 +141,14 @@ var timeTill = function() {
 
 	var futureDate = "foo";
 	var currentDate = new Date();
-	
+
 	while (isNaN(futureDate) || (futureDate.getTime() <= currentDate.getTime())) {
 		var date = prompt("Enter the future date, like this: October 13, 2014 11:13:00 (time is in 24 hour format)");
 		date = date || "March 14, 2017 15:26";
 
 		futureDate = new Date(date);
-		
-	};
+
+	}
 
 	var dayToConvert = inDays(futureDate, currentDate);
 	var day = convertRound(dayToConvert);
@@ -208,7 +210,7 @@ var mathTrick = function() {
 		total = total || round(random(100));
 
 		diff = prompt("Enter the difference or leave blank for a random number");
-		diff = diff || round(random(50)); 
+		diff = diff || round(random(50));
 	}
 
 	var numbers = [num1(total, diff), num2(total, diff)];
@@ -299,7 +301,7 @@ var denaryToBinary = function() {
 
 		var binary = [n128, n64, n32, n16, n8, n4, n2, n1];
 
-		document.getElementById('binary').innerHTML = binary[0] + binary[1] + binary[2] + binary[3] + " " + binary[4] + binary[5] + binary [6] + binary[7];
+		document.getElementById('binary').innerHTML = binary[0] + binary[1] + binary[2] + binary[3] + " " + binary[4] + binary[5] + binary[6] + binary[7];
 	}
 };
 
@@ -311,13 +313,13 @@ var partitions = function() {
 	var sqrt = function(num) {
 		return Math.sqrt(num);
 	};
-	
+
 	var num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
 	num = num || round(random(114));
 
 	while (isString(num)) {
 		num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
-		num = num || round(random(114));	
+		num = num || round(random(114));
 	}
 
 	var part1 = 4 * num * sqrt(3);
@@ -334,7 +336,7 @@ var factorableQuadratic = function() {
 		if (num > 0) {
 			return "+ " + num;
 		} else if (num < 0) {
-			return  "- " + (num * -1);
+			return "- " + (num * -1);
 		}
 	};
 
@@ -374,9 +376,9 @@ var factorableQuadratic = function() {
 	while (c === 0) {
 		c = round(random(15, -15));
 	}
-    
+
 	while (d === 0) {
-		d = round(random(15,-15));
+		d = round(random(15, -15));
 	}
 
 	var aX = xValue4Factored(a);
@@ -395,7 +397,7 @@ var factorableQuadratic = function() {
 	document.getElementById('factorable').innerHTML = quadratic + " to " + factored;
 };
 
-var medianIQR = function() {	
+var medianIQR = function() {
 	var isDecimal = function(num) {
 		if ((num % 1) === 0) {
 			return false;
@@ -406,16 +408,16 @@ var medianIQR = function() {
 
 	var sortArray = function(a, b) {
 		return a - b;
-	};	
+	};
 
 	var randomArrayLength = prompt("Enter the length of the array you want to generate or leave empty for a random number");
-	randomArrayLength = randomArrayLength || round(random(15, 5));	
+	randomArrayLength = randomArrayLength || round(random(15, 5));
 
 	while (isString(randomArrayLength)) {
 		randomArrayLength = prompt("Enter the length of the array you want to generate or leave empty for a random number");
-		randomArrayLength = randomArrayLength || round(random(15, 5));	
+		randomArrayLength = randomArrayLength || round(random(15, 5));
 	}
-    
+
 	var randomArrayMax = prompt("Enter the maximum of the array you want to generate or leave empty for a random number");
 	randomArrayMax = randomArrayMax || round(random(15, 10));
 
@@ -423,7 +425,7 @@ var medianIQR = function() {
 		randomArrayMax = prompt("Enter the maximum of the array you want to generate or leave empty for a random number");
 		randomArrayMax = randomArrayMax || round(random(15, 10));
 	}
-	
+
 	var array = [];
 
 	for (var d = 1; d <= round(randomArrayLength); d++) {
