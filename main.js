@@ -1,4 +1,4 @@
-//Necessary functions for all
+//Necessary functions for all ( .Y .) <-- Totally eyes
 var random = function(high, low) {
 	low = low || 0;
 	diff = high - low;
@@ -465,5 +465,9 @@ var medianIQR = function() {
 
 /*
 TODO List - 
-1. Enchancement
+1. Enchancement {
+	a. Add weeks
+	b. Times days by 7
+}
+2. None 
 */
