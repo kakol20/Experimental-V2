@@ -151,9 +151,9 @@ var timeTill = function() {
         date = date || "random";
 
         if (date === "random") {
-        	var high = currentDate.getTime + (12 * 4.35424 * 7 * 24 * 60 * 60 * 1000);
+        	date = currentDate.getTime() + (12 * 4.35424 * 7 * 24 * 60 * 60 * 1000);
 
-        	var randomisedDate = random(high, currentDate.getTime());
+        	var randomisedDate = random(date, currentDate.getTime());
 
         	futureDate = new Date(randomisedDate);
         } else {
