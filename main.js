@@ -472,8 +472,8 @@ var medianIQR = function() {
 
 	array.sort(sortArrayNumber);
 
-	var q1 = array[round(((array.length / 4) - 1), "up")];
-	var q3 = array[round((((array.length * 3) / 4) - 1), "up")];
+	var q1 = round(array[round(((array.length / 4) - 1), "up")], "nearest", 1);
+	var q3 = round(array[round((((array.length * 3) / 4) - 1), "up")], "nearest", 1);
 	var iqr = round(q3 - q1, "nearest", 1);
 
 	var nthValueInArray = (array.length - 1) / 2;
@@ -481,13 +481,13 @@ var medianIQR = function() {
 	var median = 0;
 
 	if (isDecimal(nthValueInArray)) {
-		median = (array[round(nthValueInArray, "down")] + array[round(nthValueInArray, "up")]) / 2;
+		median = round((array[round(nthValueInArray, "down")] + array[round(nthValueInArray, "up")]) / 2, "nearest", 1);
 	} else {
-		median = array[nthValueInArray];
+		median = round(array[nthValueInArray], "nearest", 1);
 	}
 
-	var maxArray = array[array.length - 1];
-	var minArray = array[0];
+	var maxArray = round(array[array.length - 1], 1);
+	var minArray = round(array[0], "nearest", 1);
 
 	var output = "The median is " + median + ", Q1 is " + q1 + ", Q3 is " + q3 + " and the interquartile range is " + iqr + ". The max is " + maxArray + " and the min is " + minArray;
 
