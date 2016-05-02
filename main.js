@@ -481,9 +481,9 @@ var medianIQR = function() {
 	var median = 0;
 
 	if (isDecimal(nthValueInArray)) {
-		median = (array[round(nthValueInArray, "down")] + array[round(nthValueInArray, "up")]) / 2;
+		median = round((array[round(nthValueInArray, "down")] + array[round(nthValueInArray, "up")]) / 2, "nearest", 1);
 	} else {
-		median = array[nthValueInArray];
+		median = round(array[nthValueInArray], "nearest", 1);
 	}
 
 	var maxArray = array[array.length - 1];
