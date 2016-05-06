@@ -165,10 +165,10 @@ var timeTill = function() {
 
 	while (isNaN(futureDate) || (futureDate.getTime() <= currentDate.getTime())) {
 		var date = prompt("Enter the future date, like this: October 13, 2014 11:13:00 (time is in 24 hour format)");
-		date = date || "random";
+		var selectDate = date || "random";
 
-		if (date === "random") {
-			date = currentDate.getTime() + (8760 * 60 * 60 * 1000);
+		if (selectDate === "random") {
+			date = currentDate.getTime() + (31536000000);
 
 			var randomisedDate = random(date, currentDate.getTime());
 
