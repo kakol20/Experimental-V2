@@ -86,14 +86,14 @@ var getPrimes = function() {
 
 var convertHour = function() {
 	var hourToConvert = prompt("Enter a positive number or leave blank for a random number");
-	hourToConvert = hourToConvert || random(8760);
+	hourToConvert = hourToConvert || random(12 * 4 * 7 * 24);
 
 	while (isString(hourToConvert)) {
 		hourToConvert = prompt("Enter a positive number or leave blank for a random number");
-		hourToConvert = hourToConvert || random(8760);
+		hourToConvert = hourToConvert || random(12 * 4 * 7 * 24);
 	}
 	
-	var weekToConvert = hourToConvert / 168;
+	var weekToConvert = hourToConvert / (24 * 7);
 	var week = round(weekToConvert, "down");
 
 	var dayToConvert = (weekToConvert - week) * 7;
@@ -168,7 +168,7 @@ var timeTill = function() {
 		var selectDate = date || "random";
 
 		if (selectDate === "random") {
-			date = currentDate.getTime() + (31536000000);
+			date = currentDate.getTime() + (12 * 4 * 7 * 24 * 60 * 60 * 1000);
 
 			var randomisedDate = random(date, currentDate.getTime());
 
