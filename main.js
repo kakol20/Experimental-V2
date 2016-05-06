@@ -86,11 +86,11 @@ var getPrimes = function() {
 
 var convertHour = function() {
 	var hourToConvert = prompt("Enter a positive number or leave blank for a random number");
-	hourToConvert = hourToConvert || random(12 * 4 * 7 * 24);
+	hourToConvert = hourToConvert || random(365 * 24);
 
 	while (isString(hourToConvert)) {
 		hourToConvert = prompt("Enter a positive number or leave blank for a random number");
-		hourToConvert = hourToConvert || random(12 * 4 * 7 * 24);
+		hourToConvert = hourToConvert || random(365 * 24);
 	}
 	
 	var weekToConvert = hourToConvert / (24 * 7);
@@ -145,11 +145,11 @@ var convertHour = function() {
 var timeTill = function() {
 	//http://ditio.net/2010/05/02/javascript-date-difference-calculation/
 
-	var inDays = function(d1, d2) {
+	var inWeeks = function(d1, d2) {
 		var t1 = d1.getTime();
 		var t2 = d2.getTime();
 
-		return (t1 - t2) / (24 * 3600 * 1000);
+		return (t1 - t2) / (7 * 24 * 60 * 60 * 1000);
 	};
 
 	var convertRound = function(num) {
@@ -163,28 +163,60 @@ var timeTill = function() {
 	var futureDate = "foo";
 	var currentDate = new Date();
 
-	while (isNaN(futureDate) || (futureDate.getTime() <= currentDate.getTime())) {
+	var validate = futureDate;
+	while (isString(validate) || (futureDate.getTime() <= currentDate.getTime())) {
 		var date = prompt("Enter the future date, like this: October 13, 2014 11:13:00 (time is in 24 hour format)");
 		var selectDate = date || "random";
 
 		if (selectDate === "random") {
-			date = currentDate.getTime() + (12 * 4 * 7 * 24 * 60 * 60 * 1000);
+			var tempDate = new Date();
+			
+			var month = tempDate.getMonth() + 1;
+			if (month <= 9) {
+				month = "0" + month;
+			}
+			//console.log(month);
 
-			var randomisedDate = random(date, currentDate.getTime());
+			var days = tempDate.getDate();
+			if (days <= 9) {
+				days = "0" + days;
+			}
+			//console.log(days);
 
+			var year = tempDate.getFullYear() + 1;
+			//console.log(year);
+
+			var hours = tempDate.getHours();
+			if (hours <= 9) {
+				hours = "0" + hours;
+			}
+			//console.log(hours);
+
+			var minutes = tempDate.getMinutes();
+			if (minutes <= 9) {
+				minutes = "0" + minutes;
+			}
+			//console.log(minutes);
+
+			var tempDate1 = month + " " + days + ", " + year + " " + hours + ":" + minutes;
+			tempDate1 = new Date(tempDate1);
+
+			var randomisedDate = random(tempDate1.getTime(), currentDate.getTime());
+			
 			futureDate = new Date(randomisedDate);
+			validate = futureDate.getTime();
 			//alert(futureDate);
 		} else {
 			futureDate = new Date(date);
 		}                
-	}
-
-	var dayToConvert = inDays(futureDate, currentDate);   
+	}  
 	
-	var weekToConvert = dayToConvert / 7;
+	var weekToConvert = inWeeks(futureDate, currentDate);
+	//console.log(weekToConvert);
 	var week = convertRound(weekToConvert);
+	//console.log(week);
 
-	dayToConvert = dayToConvert - (week * 7) ;
+	var dayToConvert = (weekToConvert - week) * 7 ;
 	var day = convertRound(dayToConvert);
 
 	var hourToConvert = (dayToConvert - day) * 24;
@@ -198,7 +230,7 @@ var timeTill = function() {
 	if (week == 1 ) {
 		week = week + " week, ";
 	} else {
-		day = day + " weeks, ";
+		week = week + " weeks, ";
 	}
 
 	if (day == 1) {
@@ -226,6 +258,7 @@ var timeTill = function() {
 	}
 
 	var converted = [week, day, hour, minute, second];
+	//console.log(converted[0]);
 
 	document.getElementById('timeTill').innerHTML = converted[0] + converted[1] + converted[2] + converted[3] + converted[4];
 };
