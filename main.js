@@ -90,15 +90,13 @@ var convertHour = function() {
 
 	while (isString(hourToConvert)) {
 		hourToConvert = prompt("Enter a positive number or leave blank for a random number");
-		hourToConvert = hourToConvert || random(Math.PI * 100);
+		hourToConvert = hourToConvert || random(8760);
 	}
-
-	var dayToConvert = hourToConvert / 24;
 	
-	var weekToConvert = dayToConvert / 7;
+	var weekToConvert = hourToConvert / 168;
 	var week = round(weekToConvert, "down");
 
-	dayToConvert = (dayToConvert - (week * 7));
+	var dayToConvert = (dayToConvert - (week * 7));
 	var day = round(dayToConvert, "down");
 
 	hourToConvert = (dayToConvert - day) * 24;
