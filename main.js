@@ -96,7 +96,7 @@ var convertHour = function() {
 	var weekToConvert = hourToConvert / 168;
 	var week = round(weekToConvert, "down");
 
-	var dayToConvert = (weekToConvert - (week * 7));
+	var dayToConvert = ((weekToConvert - week) * 7);
 	var day = round(dayToConvert, "down");
 
 	hourToConvert = (dayToConvert - day) * 24;
