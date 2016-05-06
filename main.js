@@ -199,7 +199,9 @@ var timeTill = function() {
 			//console.log(minutes);
 
 			var tempDate1 = month + " " + days + ", " + year + " " + hours + ":" + minutes;
+			tempDate1 = new Date(tempDate1);
 
+			var randomisedDate = random(tempDate1.getTime(), currentDate.getTime());
 			
 			futureDate = new Date(randomisedDate);
 			validate = futureDate.getTime();
