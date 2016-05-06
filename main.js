@@ -86,19 +86,17 @@ var getPrimes = function() {
 
 var convertHour = function() {
 	var hourToConvert = prompt("Enter a positive number or leave blank for a random number");
-	hourToConvert = hourToConvert || random(12 * 4.34524 * 7 * 24);
+	hourToConvert = hourToConvert || random(12 * 4 * 7 * 24);
 
 	while (isString(hourToConvert)) {
 		hourToConvert = prompt("Enter a positive number or leave blank for a random number");
-		hourToConvert = hourToConvert || random(Math.PI * 100);
+		hourToConvert = hourToConvert || random(12 * 4 * 7 * 24);
 	}
-
-	var dayToConvert = hourToConvert / 24;
 	
-	var weekToConvert = dayToConvert / 7;
+	var weekToConvert = hourToConvert / (24 * 7);
 	var week = round(weekToConvert, "down");
 
-	dayToConvert = (dayToConvert - (week * 7));
+	var dayToConvert = (weekToConvert - week) * 7;
 	var day = round(dayToConvert, "down");
 
 	hourToConvert = (dayToConvert - day) * 24;
@@ -167,14 +165,14 @@ var timeTill = function() {
 
 	while (isNaN(futureDate) || (futureDate.getTime() <= currentDate.getTime())) {
 		var date = prompt("Enter the future date, like this: October 13, 2014 11:13:00 (time is in 24 hour format)");
-		date = date || "random";
+		var selectDate = date || "random";
 
-		if (date === "random") {
-			date = currentDate.getTime() + (12 * 4.35424 * 7 * 24 * 60 * 60 * 1000);
+		if (selectDate === "random") {
+			date = currentDate.getTime() + (12 * 4 * 7 * 24 * 60 * 60 * 1000);
 
 			var randomisedDate = random(date, currentDate.getTime());
 
-			futureDate = new Date(date);
+			futureDate = new Date(randomisedDate);
 			//alert(futureDate);
 		} else {
 			futureDate = new Date(date);
@@ -486,7 +484,7 @@ var medianIQR = function() {
 		median = round(array[nthValueInArray], "nearest", 1);
 	}
 
-	var maxArray = round(array[array.length - 1], 1);
+	var maxArray = round(array[array.length - 1],"nearest", 1);
 	var minArray = round(array[0], "nearest", 1);
 
 	var output = "The median is " + median + ", Q1 is " + q1 + ", Q3 is " + q3 + " and the interquartile range is " + iqr + ". The max is " + maxArray + " and the min is " + minArray;
