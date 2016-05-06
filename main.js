@@ -484,7 +484,7 @@ var medianIQR = function() {
 		median = round(array[nthValueInArray], "nearest", 1);
 	}
 
-	var maxArray = round(array[array.length - 1], 1);
+	var maxArray = round(array[array.length - 1],"nearest", 1);
 	var minArray = round(array[0], "nearest", 1);
 
 	var output = "The median is " + median + ", Q1 is " + q1 + ", Q3 is " + q3 + " and the interquartile range is " + iqr + ". The max is " + maxArray + " and the min is " + minArray;
