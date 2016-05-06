@@ -172,7 +172,7 @@ var timeTill = function() {
 
 			var randomisedDate = random(date, currentDate.getTime());
 
-			futureDate = new Date(date);
+			futureDate = new Date(randomisedDate);
 			//alert(futureDate);
 		} else {
 			futureDate = new Date(date);
