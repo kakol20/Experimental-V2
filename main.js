@@ -1,5 +1,7 @@
 //Necessary functions for all ( .Y .) <-- Totally eyes
 var random = function(high, low) {
+	low = low || 0;
+
 	if (isString(high)) {
 		console.log("Invalid high parameter");
 		return "Invalid";
@@ -7,7 +9,6 @@ var random = function(high, low) {
 		console.log("Invalid low parameter");
 		return "Invalid";
 	} else {
-		low = low || 0;
 		diff = high - low;
 		return (Math.random() * diff) + low;	
 	} 	
@@ -29,7 +30,7 @@ var round = function(num, type, decimalPlaces) {
 };
 
 var isString = function(obj) {
-	return toString.call(obj) == '[object String]';
+	return isNaN(obj);
 };
 
 var sortArrayNumber = function(a, b) {
@@ -285,7 +286,7 @@ var mathTrick = function() {
 	total = total || round(random(100));
 	diff = diff || round(random(50));
 
-	while (isString(timeTill) || isString(diff)) {
+	while (isString(total) || isString(diff)) {
 		total = prompt("Think of two numbers. Calculate the total and the difference. Enter the total or leave blank for a random number");
 		total = total || round(random(100));
 
