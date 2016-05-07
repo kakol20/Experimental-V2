@@ -166,7 +166,7 @@ var timeTill = function() {
 			return false;
 		}
 		return !isNaN(d.getTime());
-	}
+	};
 
 	var futureDate = new Date();
 	var currentDate = new Date();
