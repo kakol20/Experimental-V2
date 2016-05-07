@@ -164,7 +164,7 @@ var timeTill = function() {
 	var currentDate = new Date();
 
 	var validate = futureDate;
-	while (isString(validate) || (futureDate.getTime() <= currentDate.getTime())) {
+	while (isNaN(futureDate.getTime()) || (futureDate.getTime() <= currentDate.getTime())) {
 		var date = prompt("Enter the future date, like this: October 13, 2014 11:13:00 (time is in 24 hour format)");
 		var selectDate = date || "random";
 
