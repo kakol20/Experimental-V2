@@ -160,11 +160,18 @@ var timeTill = function() {
 		}
 	};
 
-	var futureDate = "foo";
+	var isValidDate = function(d) {
+		if ( Object.prototype.toString.call(d) !== "[object Date]" ) {
+			return false;
+		}
+		return !isNaN(d.getTime());
+	}
+
+	var futureDate = new Date();
 	var currentDate = new Date();
 
-	var validate = futureDate;
-	while (isNaN(futureDate.getTime()) || (futureDate.getTime() <= currentDate.getTime())) {
+	//var validate = futureDate;
+	while (!isValidDate(futureDate) || (futureDate.getTime() <= currentDate.getTime())) {
 		var date = prompt("Enter the future date, like this: October 13, 2014 11:13:00 (time is in 24 hour format)");
 		var selectDate = date || "random";
 
@@ -204,7 +211,7 @@ var timeTill = function() {
 			var randomisedDate = random(tempDate1.getTime(), currentDate.getTime());
 			
 			futureDate = new Date(randomisedDate);
-			validate = futureDate.getTime();
+			//validate = futureDate.getTime();
 			//alert(futureDate);
 		} else {
 			futureDate = new Date(date);
