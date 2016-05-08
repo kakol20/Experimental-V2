@@ -43,6 +43,8 @@ var reload = function() {
 };
 
 var getPrimes = function() {
+	var a = performance.now();
+	
 	var isPrime = function(num) {
 		for (var a = 2; a <= Math.sqrt(num); a++) {
 			if ((num % a) === 0) {
@@ -83,9 +85,14 @@ var getPrimes = function() {
 	}
 
 	document.getElementById('primes').innerHTML = output;
+	
+	var b = performance.now();
+	console.log("getPrimes() performance: " + round((b - a), "nearest", 2) + "ms");
 };
 
 var convertHour = function() {
+	var c = performance.now();
+	
 	var hourToConvert = prompt("Enter a positive number or leave blank for a random number");
 	hourToConvert = hourToConvert || random(365 * 24);
 
@@ -141,9 +148,13 @@ var convertHour = function() {
 	var converted = [week, day, hour, minute, second];
 
 	document.getElementById('converted').innerHTML = converted[0] + converted[1] + converted[2] + converted[3] + converted[4];
+
+	var d = performance.now();
+	console.log("convertHour() performance: " + round((d - c), "nearest", 2) + "ms")
 };
 
 var timeTill = function() {
+	var e = performance.now();
 	//http://ditio.net/2010/05/02/javascript-date-difference-calculation/
 
 	var inWeeks = function(d1, d2) {
@@ -166,7 +177,7 @@ var timeTill = function() {
 			return false;
 		}
 		return !isNaN(d.getTime());
-	}
+	};
 
 	var futureDate = new Date();
 	var currentDate = new Date();
@@ -269,9 +280,14 @@ var timeTill = function() {
 	//console.log(converted[0]);
 
 	document.getElementById('timeTill').innerHTML = converted[0] + converted[1] + converted[2] + converted[3] + converted[4];
+
+	var f = performance.now();
+	console.log("timeTill() performance: " + round((f - e), "nearest", 2) + "ms");
 };
 
 var mathTrick = function() {
+	var g = performance.now();
+
 	var num1 = function(total, diff) {
 		return (total - diff) / 2;
 	};
@@ -299,9 +315,14 @@ var mathTrick = function() {
 	var guess = "You were thinking of " + numbers[0] + " and " + numbers[1] + ".";
 
 	document.getElementById('guess').innerHTML = guess;
+
+	var h = performance.now();
+	console.log("mathTrick() performance: " + round((h - g), "nearest", 2) + "ms");
 };
 
 var denaryToBinary = function() {
+	var i = performance.now();
+
 	var n1;
 	var n2;
 	var n4;
@@ -383,10 +404,15 @@ var denaryToBinary = function() {
 		var binary = [n128, n64, n32, n16, n8, n4, n2, n1];
 
 		document.getElementById('binary').innerHTML = binary[0] + binary[1] + binary[2] + binary[3] + " " + binary[4] + binary[5] + binary[6] + binary[7];
+
+		var j = performance.now();
+		console.log("denaryToBinary() performance: " + round((j - i), "nearest", 2) + "ms")
 	}
 };
 
 var partitions = function() {
+	var k = performance.now();
+
 	var exp = function(num) {
 		return Math.exp(num);
 	};
@@ -410,9 +436,13 @@ var partitions = function() {
 
 	document.getElementById('partitions').innerHTML = round(result);
 
+	var l = performance.now();
+	console.log("partitions() performance: " + round((l - k), "nearest", 2) + "ms");
 };
 
 var factorableQuadratic = function() {
+	var m = performance.now();
+
 	var plusOrMinus = function(num) {
 		if (num > 0) {
 			return "+ " + num;
@@ -447,7 +477,7 @@ var factorableQuadratic = function() {
 	var d = 0;
 
 	while (a === 0) {
-		a = round(random(15, -15));
+		a = round(random(5, -5));
 	}
 
 	while (b === 0) {
@@ -455,7 +485,7 @@ var factorableQuadratic = function() {
 	}
 
 	while (c === 0) {
-		c = round(random(15, -15));
+		c = round(random(5, -5));
 	}
 
 	while (d === 0) {
@@ -476,9 +506,14 @@ var factorableQuadratic = function() {
 	var quadratic = ac + "x^2 " + adbc + " " + bd;
 
 	document.getElementById('factorable').innerHTML = quadratic + " to " + factored;
+
+	var n = performance.now();
+	console.log("factorableQuadratic() performance: " + round((n - m), "nearest", 2) + "ms")
 };
 
 var medianIQR = function() {
+	var o = performance.now();
+
 	var isDecimal = function(num) {
 		if ((num % 1) === 0) {
 			return false;
@@ -531,6 +566,9 @@ var medianIQR = function() {
 	var output = "The median is " + median + ", Q1 is " + q1 + ", Q3 is " + q3 + " and the interquartile range is " + iqr + ". The max is " + maxArray + " and the min is " + minArray;
 
 	document.getElementById('IQR').innerHTML = output;
+
+	var p = performance.now();
+	console.log("medianIQR() performance: " + round((p - o), "nearest", 2) + "ms");
 };
 
 /*
