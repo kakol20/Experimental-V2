@@ -422,11 +422,11 @@ var partitions = function() {
 	};
 
 	var num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
-	num = num || round(random(114));
+	num = num || round(random(Math.pow(10, 4.884042141949543225365459875320084393024444580078125)));
 
 	while (isString(num)) {
 		num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
-		num = num || round(random(114));
+		num = num || round(random(Math.pow(10, 4.884042141949543225365459875320084393024444580078125)));
 	}
 
 	var part1 = 4 * num * sqrt(3);
@@ -434,7 +434,7 @@ var partitions = function() {
 
 	var result = (1 / part1) * exp(part2);
 
-	document.getElementById('partitions').innerHTML = round(result);
+	document.getElementById('partitions').innerHTML = num + " has " round(result) + " partitions";
 
 	var l = performance.now();
 	console.log("partitions() performance: " + round((l - k), "nearest", 2) + "ms");
