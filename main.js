@@ -434,7 +434,7 @@ var partitions = function() {
 
 	var result = (1 / part1) * exp(part2);
 
-	document.getElementById('partitions').innerHTML = num + " has " round(result) + " partitions";
+	document.getElementById('partitions').innerHTML = num + " has " + round(result) + " partitions";
 
 	var l = performance.now();
 	console.log("partitions() performance: " + round((l - k), "nearest", 2) + "ms");
