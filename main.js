@@ -421,6 +421,7 @@ var partitions = function() {
 		return Math.sqrt(num);
 	};
 
+	//https://www.desmos.com/calculator/yo526tkuvu
 	var num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
 	num = num || round(random(Math.pow(10, 4.884042141949543225365459875320084393024444580078125)));
 
