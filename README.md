@@ -8,3 +8,6 @@ A script where I experiment with different algorithms
 
 #Info
 A test branch was created to test code, once all fixes had been done, will merge with master
+
+[]Test
+[X]Test
