@@ -25,7 +25,7 @@ var round = function(num, type, decimalPlaces) {
 	} else if (type === "nearest") {
 		return Math.round(num * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces);
 	} else {
-		console.log("Invalid decimal type");
+		console.log("Invalid round type");
 	}
 };
 
@@ -421,12 +421,13 @@ var partitions = function() {
 		return Math.sqrt(num);
 	};
 
+	//https://www.desmos.com/calculator/yo526tkuvu
 	var num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
-	num = num || round(random(114));
+	num = num || round(random(Math.pow(10, 4.884042141949543225365459875320084393024444580078125)));
 
 	while (isString(num)) {
 		num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
-		num = num || round(random(114));
+		num = num || round(random(Math.pow(10, 4.884042141949543225365459875320084393024444580078125)));
 	}
 
 	var part1 = 4 * num * sqrt(3);
@@ -434,7 +435,7 @@ var partitions = function() {
 
 	var result = (1 / part1) * exp(part2);
 
-	document.getElementById('partitions').innerHTML = round(result);
+	document.getElementById('partitions').innerHTML = num + " has " + round(result) + " partitions";
 
 	var l = performance.now();
 	console.log("partitions() performance: " + round((l - k), "nearest", 2) + "ms");
@@ -571,10 +572,55 @@ var medianIQR = function() {
 	console.log("medianIQR() performance: " + round((p - o), "nearest", 2) + "ms");
 };
 
+var approxSqrt = function() {
+	//https://github.com/ErmiyaEskandary/Slither.io-bot/pull/127
+	var q = performance.now();
+
+	var num = prompt("Enter a number or leave blank for a random number");
+	num = round(Math.abs(num)) || round(random(Math.PI * 100));
+
+	while (isString(num)) {
+		num = prompt("Enter a number or leave blank for a random number");
+		num = round(Math.abs(num)) || round(random(Math.PI * 100));	
+	}
+
+	var diff = 1;
+	var closestSquare = 1;
+
+	while (diff > 0) {
+		diff = num - (closestSquare * closestSquare);
+		if (diff === 0) {
+			closestSquare++;
+			break;
+		}
+		closestSquare++;
+	}
+
+	//console.log(closestSquare);
+	//console.log(diff);
+
+	closestSquare = closestSquare - 1;
+	//console.log(newClosestSquare);
+
+	diff = num - (closestSquare * closestSquare);
+	//console.log(newDiff);
+
+	var approximate = round(closestSquare + (diff / (closestSquare * 2)), "nearest", 4);
+	var actual = Math.sqrt(num);
+	console.log("Actual value " + round(actual, "nearest", 4));
+	var percentOff = round((Math.abs(actual - approximate) / actual) * 100, "nearest", 4);
+
+	document.getElementById('approxSqrt').innerHTML = "The approximate square root of " + num + " is " + approximate + " and it was " + percentOff + "% off the real value"; 
+
+	var r = performance.now();
+	console.log("approxSqrt() performance: " + round((r - q), "nearest", 2) + "ms");	
+};
+
+
 /*
 TODO List - 
-1. Enchancement {
+1. Enhancement {
 	a. None
 }
-2. None 
+2. None
 */
