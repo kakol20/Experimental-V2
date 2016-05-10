@@ -577,11 +577,11 @@ var approxSqrt = function() {
 	var q = performance.now();
 
 	var num = prompt("Enter a number or leave blank for a random number");
-	num = Math.abs(num) || round(random(100), "nearest");
+	num = round(Math.abs(num)) || round(random(Math.PI * 100));
 
 	while (isString(num)) {
 		num = prompt("Enter a number or leave blank for a random number");
-		num = Math.abs(num) || round(random(100), "nearest");	
+		num = round(Math.abs(num)) || round(random(Math.PI * 100));	
 	}
 
 	var diff = 1;
