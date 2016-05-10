@@ -25,7 +25,7 @@ var round = function(num, type, decimalPlaces) {
 	} else if (type === "nearest") {
 		return Math.round(num * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces);
 	} else {
-		console.log("Invalid decimal type");
+		console.log("Invalid round type");
 	}
 };
 
@@ -572,11 +572,53 @@ var medianIQR = function() {
 	console.log("medianIQR() performance: " + round((p - o), "nearest", 2) + "ms");
 };
 
+var approxSqrt = function() {
+	//https://github.com/ErmiyaEskandary/Slither.io-bot/pull/127
+	var q = performance.now();
+
+	var num = prompt("Enter a number or leave blank for a random number");
+	num = Math.abs(num) || round(random(100), "nearest");
+
+	while (isString(num)) {
+		num = prompt("Enter a number or leave blank for a random number");
+		num = Math.abs(num) || round(random(100), "nearest");	
+	}
+
+	var diff = 1;
+	var closestSquare = 1;
+
+	while (diff > 0) {
+		diff = num - (closestSquare * closestSquare);
+		if (diff === 0) {
+			closestSquare++;
+			break;
+		}
+		closestSquare++;
+	}
+
+	//console.log(closestSquare);
+	//console.log(diff);
+
+	closestSquare = closestSquare - 1;
+	//console.log(newClosestSquare);
+
+	diff = num - (closestSquare * closestSquare);
+	//console.log(newDiff);
+
+	var approximate = closestSquare + (diff / (closestSquare * 2));
+	var percentOff = (Math.abs(actual - approximate) / actual) * 100;
+
+	document.getElementById('approxSqrt').innerHTML = "The approximate square root of " + num + " is " + approximate + " and it was " + percentOff + "% off the real value"; 
+
+	var r = performance.now();
+	console.log("approxSqrt() performance: " + round((r - q), "nearest", 2) + "ms");	
+};
+
 
 /*
 TODO List - 
 1. Enhancement {
 	a. None
 }
-2. Approximate Square Root
+2. None
 */
