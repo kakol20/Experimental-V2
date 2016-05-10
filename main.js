@@ -606,6 +606,7 @@ var approxSqrt = function() {
 	//console.log(newDiff);
 
 	var approximate = closestSquare + (diff / (closestSquare * 2));
+	var actual = Math.sqrt(num);
 	var percentOff = (Math.abs(actual - approximate) / actual) * 100;
 
 	document.getElementById('approxSqrt').innerHTML = "The approximate square root of " + num + " is " + approximate + " and it was " + percentOff + "% off the real value"; 
