@@ -605,7 +605,7 @@ var approxSqrt = function() {
 	diff = num - (closestSquare * closestSquare);
 	//console.log(newDiff);
 
-	var approximate = closestSquare + (diff / (closestSquare * 2));
+	var approximate = round(closestSquare + (diff / (closestSquare * 2)), "nearest", 4);
 	var actual = Math.sqrt(num);
 	console.log("Actual value " + round(actual, "nearest", 4));
 	var percentOff = round((Math.abs(actual - approximate) / actual) * 100, "nearest", 4);
