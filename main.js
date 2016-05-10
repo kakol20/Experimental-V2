@@ -572,10 +572,11 @@ var medianIQR = function() {
 	console.log("medianIQR() performance: " + round((p - o), "nearest", 2) + "ms");
 };
 
+
 /*
 TODO List - 
-1. Enchancement {
+1. Enhancement {
 	a. None
 }
-2. None 
+2. Approximate Square Root
 */
