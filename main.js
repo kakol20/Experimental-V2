@@ -605,10 +605,10 @@ var approxSqrt = function() {
 	diff = num - (closestSquare * closestSquare);
 	//console.log(newDiff);
 
-	var approximate = round(closestSquare + (diff / (closestSquare * 2)), "nearest", 6);
+	var approximate = round(closestSquare + (diff / (closestSquare * 2)), "nearest", 4);
 	var actual = Math.sqrt(num);
-	console.log("Actual value " + round(actual, "nearest", 6));
-	var percentOff = round((Math.abs(actual - approximate) / actual) * 100, "nearest", 6);
+	console.log("Actual value " + round(actual, "nearest", 4));
+	var percentOff = round((Math.abs(actual - approximate) / actual) * 100, "nearest", 4);
 
 	document.getElementById('approxSqrt').innerHTML = "The approximate square root of " + num + " is " + approximate + " and it was " + percentOff + "% off the real value"; 
 
