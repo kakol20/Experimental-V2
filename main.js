@@ -640,7 +640,7 @@ var normalDistribution = function() {
 				prob = 1;
 			}
 		} else {
-			prob = round(normalCDF((val - mean) / sd), "nearest", 4);
+			prob = normalCDF((val - mean) / sd);
 		};
 		return prob;
 	};
