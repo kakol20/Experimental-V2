@@ -670,6 +670,7 @@ var normalDistribution = function() {
 	var sdSquared = round(sd * sd, "nearest", 2);
 
 	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + sdSquared + ") P(X < " + val + ") = " + result;
+	console.log("Standard Deviation: " + round(sd, "nearest", 2));
 
 	var t = performance.now();
 	console.log("normalDistribution() performance: " + (t - s) + "ms");
