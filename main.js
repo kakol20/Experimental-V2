@@ -653,13 +653,13 @@ var normalDistribution = function() {
 
 	var mean = "foo";
 	while (isString(mean)) {
-		mean = prompt("Enter the mean or leave blank");
+		mean = prompt("Enter the mean or leave blank for a random number");
 		mean = mean || random(Math.PI * 100);
 	}
 
 	var sd = "foo";
 	while (isString(sd)) {
-		sd = prompt("Enter the standard deviation");
+		sd = prompt("Enter the standard deviation or leave blank for a random number");
 		sd = sd || random(Math.abs(val - mean) / 4);
 	} 
 
