@@ -673,7 +673,7 @@ var normalDistribution = function() {
 	console.log("Standard Deviation: " + round(sd, "nearest", 2));
 
 	var t = performance.now();
-	console.log("normalDistribution() performance: " + (t - s) + "ms");
+	console.log("normalDistribution() performance: " + round(t - s, "nearest", 2) + "ms");
 };
 
 /*
