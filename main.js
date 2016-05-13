@@ -641,27 +641,27 @@ var normalDistribution = function() {
 			}
 		} else {
 			prob = normalCDF((val - mean) / sd);
-		};
+		}
 		return prob;
 	};
 
 	var val = "foo";
 	while (isString(val)) {
-		val = prompt("Enter the value for the probability or leave blank for a random number")
+		val = prompt("Enter the value for the probability or leave blank for a random number");
 		val = val || random(Math.PI * 100);
-	};
+	}
 
 	var mean = "foo";
 	while (isString(mean)) {
 		mean = prompt("Enter the mean or leave blank");
 		mean = mean || random(Math.PI * 100);
-	};
+	}
 
 	var sd = "foo";
 	while (isString(sd)) {
 		sd = prompt("Enter the standard deviation");
 		sd = sd || random(Math.abs(val - mean) / 4);
-	}; 
+	} 
 
 	var result = calculate(val, mean, sd);
 
