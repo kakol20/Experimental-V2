@@ -663,7 +663,7 @@ var normalDistribution = function() {
 		sd = sd || random(Math.abs(val - mean) / 4);
 	}; 
 
-	var result = normalCDF((val - mean) / sd);
+	var result = calculate(val, mead, sd);
 
 	val = round(val, "nearest", 2);
 	mean = round(mean, "nearest", 2);
