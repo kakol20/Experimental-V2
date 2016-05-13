@@ -680,6 +680,10 @@ var normalDistribution = function() {
 TODO List - 
 1. Enhancement {
 	a. Random val below mean (may need to rearrange order of execution)
+		i. Randomise mean = random(Math.pi * 100);
+	   ii. Randomise sd suggestion = random(mean / 2, mean / 4);
+	  iii. Randomise val = random(mean + (sd * 4), mean - (sd * 4));
+	   iv. In the above order
 }
 2. None
 */
