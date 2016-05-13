@@ -663,7 +663,7 @@ var normalDistribution = function() {
 		sd = sd || random(Math.abs(val - mean) / 4);
 	} 
 
-	var result = calculate(val, mean, sd);
+	var result = round(calculate(val, mean, sd), "nearest", 4);
 
 	val = round(val, "nearest", 2);
 	mean = round(mean, "nearest", 2);
