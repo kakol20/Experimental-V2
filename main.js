@@ -654,13 +654,13 @@ var normalDistribution = function() {
 	var mean = "foo";
 	while (isString(mean)) {
 		mean = prompt("Enter the mean or leave blank for a random number");
-		mean = mean || random(val / random(3, 2));
+		mean = mean || random(val);
 	}
 
 	var sd = "foo";
 	while (isString(sd)) {
 		sd = prompt("Enter the standard deviation or leave blank for a random number");
-		sd = sd || random(Math.abs(val - mean) / 2, Math.abs(val - mean) / 4);
+		sd = sd || random(val, val / 4);
 	} 
 
 	var result = round(calculate(val, mean, sd), "nearest", 4);
