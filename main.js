@@ -660,7 +660,7 @@ var normalDistribution = function() {
 	var sd = "foo";
 	while (isString(sd)) {
 		sd = prompt("Enter the standard deviation or leave blank for a random number");
-		sd = sd || random(Math.abs(val - mean) / 4);
+		sd = sd || random(Math.abs(val - mean) / 2, Math.abs(val - mean) / 4);
 	} 
 
 	var result = round(calculate(val, mean, sd), "nearest", 4);
