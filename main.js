@@ -616,11 +616,70 @@ var approxSqrt = function() {
 	console.log("approxSqrt() performance: " + round((r - q), "nearest", 2) + "ms");	
 };
 
+var normalDistribution = function() {
+	var s = performance.now();
+
+	var normalCDF = function(x) {
+		var t = 1 / (1 + 0.2316419 * Math.abs(x));
+        var d = 0.3989423 * Math.exp(-x * x / 2);
+        var prob = d * t * (0.3193815 + t * (-0.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274))));
+        if (x > 0) {
+            prob = 1 - prob;
+        }
+        return prob;
+	};
+
+	var calculate = function(val, mean, sd) {
+		var prob = 0;
+		sd = Math.abs(sd);
+
+		if (sd === 0) {
+			if (val < mean) {
+				prob = 0;
+			} else {
+				prob = 1;
+			}
+		} else {
+			prob = normalCDF((val - mean) / sd);
+		}
+		return prob;
+	};
+
+	var val = "foo";
+	while (isString(val)) {
+		val = prompt("Enter the value for the probability or leave blank for a random number");
+		val = val || random(Math.PI * 100);
+	}
+
+	var mean = "foo";
+	while (isString(mean)) {
+		mean = prompt("Enter the mean or leave blank for a random number");
+		mean = mean || random(val);
+	}
+
+	var sd = "foo";
+	while (isString(sd)) {
+		sd = prompt("Enter the standard deviation or leave blank for a random number");
+		sd = sd || random(val, val / 4);
+	} 
+
+	var result = round(calculate(val, mean, sd), "nearest", 4);
+
+	val = round(val, "nearest", 2);
+	mean = round(mean, "nearest", 2);
+	var sdSquared = round(sd * sd, "nearest", 2);
+
+	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + sdSquared + ") P(X < " + val + ") = " + result;
+	console.log("Standard Deviation: " + round(sd, "nearest", 2));
+
+	var t = performance.now();
+	console.log("normalDistribution() performance: " + round(t - s, "nearest", 2) + "ms");
+};
 
 /*
 TODO List - 
 1. Enhancement {
-	a. None
+	a. Random val below mean (may need to rearrange order of execution)
 }
 2. None
 */
