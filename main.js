@@ -669,7 +669,7 @@ var normalDistribution = function() {
 	mean = round(mean, "nearest", 2);
 	var sdSquared = round(sd * sd, "nearest", 2);
 
-	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + sdSquared + ") P(X < " + val + ") = " + round(result, "nearest", 2);
+	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + sdSquared + ") P(X < " + val + ") = " + result;
 
 	var t = performance.now();
 	console.log("normalDistribution() performance: " + (t - s) + "ms");
