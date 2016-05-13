@@ -679,7 +679,7 @@ var normalDistribution = function() {
 /*
 TODO List - 
 1. Enhancement {
-	a. None
+	a. Random val below mean (may need to rearrange order of execution)
 }
-2. Normal Distribution Function
+2. None
 */
