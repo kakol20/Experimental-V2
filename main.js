@@ -9,7 +9,7 @@ var random = function(high, low) {
 		console.log("Invalid low parameter");
 		return "Invalid";
 	} else {
-		diff = high - low;
+		var diff = high - low;
 		return (Math.random() * diff) + low;	
 	} 	
 };
