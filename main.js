@@ -654,6 +654,7 @@ var normalDistribution = function() {
 	var mean = "foo";
 	while (isString(mean)) {
 		mean = prompt("Enter the mean or leave blank for a random number");
+		mean = mean || random((Math.PI * 100) / random(3, 2));
 	}
 
 	var sd = "foo";
