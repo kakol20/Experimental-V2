@@ -53,7 +53,7 @@ var key = (function() {
 			closestSquare = closestSquare - 1;
 			diff = num - (closestSquare * closestSquare);
 			return closestSquare + (diff / closestSquare * 2);
-		},
+		}
 	};
 })();
 
@@ -67,10 +67,10 @@ var getPrimes = function() {
 	var isPrime = function(num) {
 		for (var a = 2; a <= Math.sqrt(num); a++) {
 			if ((num % a) === 0) {
-				return false;
+				return 0;
 			}
 		}
-		return true;
+		return 1;
 	};
 	//Somehow using return true; and return false; doesn't work
 
@@ -84,7 +84,7 @@ var getPrimes = function() {
 	primes.push(2);
 
 	for (var b = 3; b <= max; b++) {
-		if (isPrime(b)) {
+		if (isPrime(b) === 1) {
 			primes.push(b);
 		}
 	}
@@ -93,11 +93,11 @@ var getPrimes = function() {
 
 	for (var c = 0; c < primes.length; c++) {
 		if (c === 0){
-			output = primes[c].toString() + ", ";
+			output = primes[c] + ", ";
 		} else if (c === primes.length - 1) {
-			output = output + primes[c].toString();
+			output = output + primes[c];
 		} else {
-			output = output + primes[c].toString() + ", ";
+			output = output + primes[c] + ", ";
 		}
 	}
 
