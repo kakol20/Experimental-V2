@@ -578,7 +578,6 @@ var approxSqrt = function() {
 		num = keystone.round(Math.abs(num)) || keystone.round(keystone.random(Math.PI * 100));	
 	}
 
-
 	var approximate = keystone.round(keystone.approximateSqrt(num), "nearest", 4);
 	var actual = Math.sqrt(num);
 	console.log("Actual value " + keystone.round(actual, "nearest", 4));
