@@ -74,7 +74,7 @@ var getPrimes = function() {
 	};
 	//Somehow using return true; and return false; doesn't work
 
-	var max = " ";
+	var max = "foo";
 	while (key.isString(max)) {
 		max = prompt("Enter a positive number or leave blank for a random number");
 		max = max || key.round(key.random(Math.PI * 100, 50));
@@ -89,7 +89,7 @@ var getPrimes = function() {
 		}
 	}
 
-	var output = " ";
+	var output = "foo";
 
 	for (var c = 0; c < primes.length; c++) {
 		if (c === 0){
@@ -110,8 +110,7 @@ var getPrimes = function() {
 var convertHour = function() {
 	var c = performance.now();
 
-	var hourToConvert = " ";
-
+	var hourToConvert = "foo";
 	while (key.isString(hourToConvert)) {
 		hourToConvert = prompt("Enter a postive number or leave blank for random");
 		hourToConvert = hourToConvert || key.random(365 * 24);
@@ -303,8 +302,8 @@ var mathTrick = function() {
 		return total - ((total - diff) / 2);
 	};
 
-	var total = " ";
-	var diff = " ";
+	var total = "foo";
+	var diff = "foo";
 
 	total = total || key.round(key.random(100));
 	diff = diff || key.round(key.random(50));
@@ -340,7 +339,7 @@ var denaryToBinary = function() {
 	var n64;
 	var n128;
 
-	var n = " ";
+	var n = "foo";
 
 	while (key.isString(n)) {
 		n = prompt("Enter a positive number or leave empty for a random number");
@@ -428,7 +427,7 @@ var partitions = function() {
 	};
 
 	//https://www.desmos.com/calculator/yo526tkuvu
-	var num = " ";
+	var num = "foo";
 
 	while (key.isString(num)) {
 		num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
@@ -532,15 +531,13 @@ var medianIQR = function() {
 		return a - b;
 	};
 
-	var randomArrayLength = " ";
-
+	var randomArrayLength = "foo";
 	while (key.isString(randomArrayLength)) {
 		randomArrayLength = prompt("Enter the length of the array you want to generate or leave empty for a random number");
 		randomArrayLength = randomArrayLength || key.round(key.random(15, 5));
 	}
 
-	var randomArrayMax = " ";
-
+	var randomArrayMax = "foo";
 	while (key.isString(randomArrayMax)) {
 		randomArrayMax = prompt("Enter the maximum of the array you want to generate or leave empty for a random number");
 		randomArrayMax = randomArrayMax || key.round(key.random(15, 10));
@@ -583,8 +580,7 @@ var approxSqrt = function() {
 	//https://github.com/ErmiyaEskandary/Slither.io-bot/pull/127
 	var q = performance.now();
 
-	var num = " ";
-
+	var num = "foo";
 	while (key.isString(num)) {
 		num = prompt("Enter a number or leave blank for a random number");
 		num = key.round(Math.abs(num)) || key.round(key.random(Math.PI * 100));	
