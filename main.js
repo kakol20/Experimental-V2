@@ -673,8 +673,8 @@ TODO List -
 	}
 }
 2. FIX EVERYTHING - something's broken... WTF {
-	a. 	32 bit vs 64 bit maths? Nah, can't be...
-	b. 	Fix one at a time
-	c. 	Something wrong with IIFE perhaps?
+	a. 32 bit vs 64 bit maths? Nah, can't be...
+	b. Fix one at a time
+	c. Something wrong with IIFE perhaps?
 }
 */
