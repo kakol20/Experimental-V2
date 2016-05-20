@@ -93,7 +93,7 @@ var getPrimes = function() {
 
 	for (var c = 0; c < primes.length; c++) {
 		if (c === 0){
-			output = prime[c].toString + ", ";
+			output = primes[c].toString() + ", ";
 		} else if (c === primes.length - 1) {
 			output = output + primes[c].toString();
 		} else {
