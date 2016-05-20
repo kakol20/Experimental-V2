@@ -37,11 +37,7 @@ var keystone = (function() {
 			}
 		},
 
-		sortArrayNumber: function(a, b) {
-			return a - b;
-		},
-
-		approxSqrt: function(num) {
+		approximateSqrt: function(num) {
 			var diff = 1;
 			var closestSquare = 1;
 
@@ -425,7 +421,7 @@ var partitions = function() {
 	};
 
 	var sqrt = function(num) {
-		return keystone.approxSqrt(num);
+		return keystone.approximateSqrt(num);
 	};
 
 	//https://www.desmos.com/calculator/yo526tkuvu
@@ -433,7 +429,7 @@ var partitions = function() {
 
 	while (keystone.isString(num)) {
 		num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
-		num = num || keystone.round(keystone.random(Math.pow(10, 4.884042141949543225365459875320084393024444580078125)));
+		num = num || keystone.round(keystone.random(Math.pow(10, 4)));
 	}
 
 	var part1 = 4 * num * sqrt(3);
@@ -529,6 +525,10 @@ var medianIQR = function() {
 		}
 	};
 
+	var sortArrayNumber = function(a, b) {
+		return a - b;
+	};
+
 	var randomArrayLength = " ";
 
 	while (keystone.isString(randomArrayLength)) {
@@ -545,11 +545,11 @@ var medianIQR = function() {
 
 	var array = [];
 
-	for (var d = 1; d <= keystone.round(randomArrayLength); d++) {
+	for (var d = 0; d < keystone.round(randomArrayLength); d++) {
 		array.push(keystone.round(keystone.random(randomArrayMax), "up", 1));
 	}
 
-	array.sort(keystone.sortArrayNumber);
+	array.sort(sortArrayNumber);
 
 	var q1 = keystone.round(array[keystone.round(((array.length / 4) - 1), "up")], "nearest", 1);
 	var q3 = keystone.round(array[keystone.round((((array.length * 3) / 4) - 1), "up")], "nearest", 1);
@@ -587,7 +587,8 @@ var approxSqrt = function() {
 		num = keystone.round(Math.abs(num)) || keystone.round(keystone.random(Math.PI * 100));	
 	}
 
-	var approximate = keystone.round(keystone.approxSqrt(num), "nearest", 4);
+
+	var approximate = keystone.round(keystone.approximateSqrt(num), "nearest", 4);
 	var actual = Math.sqrt(num);
 	console.log("Actual value " + keystone.round(actual, "nearest", 4));
 	var percentOff = keystone.round((Math.abs(actual - approximate) / actual) * 100, "nearest", 4);
