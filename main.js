@@ -45,6 +45,10 @@ var keystone = (function() {
 			closestSquare = closestSquare - 1;
 			diff = num - (closestSquare * closestSquare);
 			return closestSquare + (diff / closestSquare * 2);
+		},
+
+		sortArrayNumber: function(a, b) {
+			return a - b;
 		}
 	};
 })();
@@ -541,7 +545,7 @@ var medianIQR = function() {
 		array.push(keystone.round(keystone.random(randomArrayMax), "up", 1));
 	}
 
-	array.sort(sortArrayNumber);
+	array.sort(keystone.sortArrayNumber);
 
 	var q1 = keystone.round(array[keystone.round(((array.length / 4) - 1), "up")], "nearest", 1);
 	var q3 = keystone.round(array[keystone.round((((array.length * 3) / 4) - 1), "up")], "nearest", 1);
