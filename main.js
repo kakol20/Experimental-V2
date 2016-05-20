@@ -431,7 +431,7 @@ var partitions = function() {
 	//https://www.desmos.com/calculator/yo526tkuvu
 	var num = " ";
 
-	while (isString(num)) {
+	while (keystone.isString(num)) {
 		num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
 		num = num || keystone.round(keystone.random(Math.pow(10, 4.884042141949543225365459875320084393024444580078125)));
 	}
@@ -545,7 +545,7 @@ var medianIQR = function() {
 
 	var array = [];
 
-	for (var d = 1; d <= round(randomArrayLength); d++) {
+	for (var d = 1; d <= keystone.round(randomArrayLength); d++) {
 		array.push(keystone.round(keystone.random(randomArrayMax), "up", 1));
 	}
 
@@ -582,7 +582,7 @@ var approxSqrt = function() {
 
 	var num = " ";
 
-	while (isString(num)) {
+	while (keystone.isString(num)) {
 		num = prompt("Enter a number or leave blank for a random number");
 		num = keystone.round(Math.abs(num)) || keystone.round(keystone.random(Math.PI * 100));	
 	}
