@@ -1,11 +1,11 @@
 //The "keystone" functions for all ( .Y .) <-- Totally eyes
-var keystone = (function(){
+var keystone = (function() {
 	return {
 		isString: function(obj) {
 			return isNaN(obj);
 		},
 
-		random: function(high/ low) {
+		random: function(high, low) {
 			low = low || 0;
 
 			if (keystone.isString(high)) {
@@ -51,13 +51,13 @@ var keystone = (function(){
 					closestSquare++;
 					break;
 				}
-				closestSquare++
+				closestSquare++;
 			}
 
 			closestSquare = closestSquare - 1;
 			diff = num - (closestSquare * closestSquare);
 			return closestSquare + (diff / closestSquare * 2);
-		}
+		},
 	};
 })();
 
@@ -98,7 +98,7 @@ var getPrimes = function() {
 		if (c === primes.length - 1) {
 			output = output + primes[c].toString();
 		} else {
-			output = output + primes[c].toString() + ", "
+			output = output + primes[c].toString() + ", ";
 		}
 	}
 
@@ -167,7 +167,7 @@ var convertHour = function() {
 	document.getElementById('converted').innerHTML = converted[0] + converted[1] + converted[2] + converted[3] + converted[4];
 
 	var d = performance.now();
-	console.log("convertHour() performance: " + keystone.round((d - c), "nearest", 2) + "ms")
+	console.log("convertHour() performance: " + keystone.round((d - c), "nearest", 2) + "ms");
 };
 
 var timeTill = function() {
@@ -413,7 +413,7 @@ var denaryToBinary = function() {
 		document.getElementById('binary').innerHTML = binary[0] + binary[1] + binary[2] + binary[3] + " " + binary[4] + binary[5] + binary[6] + binary[7];
 
 		var j = performance.now();
-		console.log("denaryToBinary() performance: " + keystone.round((j - i), "nearest", 2) + "ms")
+		console.log("denaryToBinary() performance: " + keystone.round((j - i), "nearest", 2) + "ms");
 	}
 };
 
@@ -515,7 +515,7 @@ var factorableQuadratic = function() {
 	document.getElementById('factorable').innerHTML = quadratic + " to " + factored;
 
 	var n = performance.now();
-	console.log("factorableQuadratic() performance: " + keystone.round((n - m), "nearest", 2) + "ms")
+	console.log("factorableQuadratic() performance: " + keystone.round((n - m), "nearest", 2) + "ms");
 };
 
 var medianIQR = function() {
