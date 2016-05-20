@@ -1,42 +1,65 @@
-//Necessary functions for all ( .Y .) <-- Totally eyes
-var random = function(high, low) {
-	low = low || 0;
+//The "keystone" functions for all ( .Y .) <-- Totally eyes
+var keystone = (function(){
+	return {
+		isString: function(obj) {
+			return isNaN(obj);
+		},
 
-	if (isString(high)) {
-		console.log("Invalid high parameter");
-		return "Invalid";
-	} else if (isString(low)) {
-		console.log("Invalid low parameter");
-		return "Invalid";
-	} else {
-		var diff = high - low;
-		return (Math.random() * diff) + low;	
-	} 	
-};
+		random: function(high/ low) {
+			low = low || 0;
 
-var round = function(num, type, decimalPlaces) {
-	type = type || "nearest";
-	decimalPlaces = decimalPlaces || 0;
+			if (keystone.isString(high)) {
+				console.log("Invalid high parameter");
+				return "Invalid";
+			} else if (keystone.isString(high)) {
+				console.log("Invalid low parameter");
+				return "Invalid";
+			} else {
+				var diff = high - low;
+				return (Math.random() * diff) + low;
+			}
+		},
 
-	if (type === "down") {
-		return Math.floor(num * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces);
-	} else if (type === "up") {
-		return Math.ceil(num * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces);
-	} else if (type === "nearest") {
-		return Math.round(num * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces);
-	} else {
-		console.log("Invalid round type");
-	}
-};
+		round: function(num, type, decimalPlaces) {
+			type = type || "nearest";
+			decimalPlaces = decimalPlaces || 0;
 
-var isString = function(obj) {
-	return isNaN(obj);
-};
+			var toDecimalPlaces = function() {
+				return num * Math.pow(10, decimalPlaces);
+			};
 
-var sortArrayNumber = function(a, b) {
-	return a - b;
-};
-//end
+			if (type === "down") {
+				return Math.floor(toDecimalPlaces()) / Math.pow(10, decimalPlaces);
+			} else if (type === "up") {
+				return Math.ceil(toDecimalPlaces()) / Math.pow(10, decimalPlaces);
+			} else if (type === "nearest") {
+				return Math.round(toDecimalPlaces()) / Math.pow(10, decimalPlaces);
+			}
+		},
+
+		sortArrayNumber: function(a, b) {
+			return a - b;
+		},
+
+		approxSqrt: function(num) {
+			var diff = 1;
+			var closestSquare = 1;
+
+			while (diff > 0) {
+				diff = num - (closestSquare * closestSquare);
+				if (diff === 0) {
+					closestSquare++;
+					break;
+				}
+				closestSquare++
+			}
+
+			closestSquare = closestSquare - 1;
+			diff = num - (closestSquare * closestSquare);
+			return closestSquare + (diff / closestSquare * 2);
+		}
+	};
+})();
 
 var reload = function() {
 	location.reload();
@@ -44,76 +67,70 @@ var reload = function() {
 
 var getPrimes = function() {
 	var a = performance.now();
-	
+
 	var isPrime = function(num) {
-		for (var a = 2; a <= Math.sqrt(num); a++) {
+		for (var a = 2; a <= keystone.approxSqrt(num); a++) {
 			if ((num % a) === 0) {
 				return 0;
 			}
 		}
 		return 1;
 	};
-	//Somehow using return true;  and return false; doesn't work
+	//Somehow using return true; and return false; doesn't work
 
-	var max = prompt("Enter a positive number or leave blank for a random number");
-	max = max || round(random(Math.PI * 100, 50));
-
-	while (isString(max)) {
+	var max = " ";
+	while (keystone.isString(max)) {
 		max = prompt("Enter a positive number or leave blank for a random number");
-		max = max || round(random(Math.PI * 100, 50));
+		max = max || keystone.round(keystone.random(Math.PI * 100, 50));
 	}
 
-	var primes = [];
-	primes.push(2);
+	var primes = [2];
 
 	for (var b = 3; b <= max; b++) {
-		if (isPrime(b) == 1) {
+		if (isPrime(b) === 1) {
 			primes.push(b);
 		}
 	}
 
-	var output = "";
+	var output = " ";
 
 	for (var c = 0; c < primes.length; c++) {
-		if (c === 0) {
-			output = primes[0].toString() + ", ";
-		} else if (c == primes.length - 1) {
+		if (c === primes.length - 1) {
 			output = output + primes[c].toString();
 		} else {
-			output = output + primes[c].toString() + ", ";
+			output = output + primes[c].toString() + ", "
 		}
 	}
 
 	document.getElementById('primes').innerHTML = output;
-	
+
 	var b = performance.now();
-	console.log("getPrimes() performance: " + round((b - a), "nearest", 2) + "ms");
+	console.log("getPrimes() performance: " + keystone.round(b - a, "nearest", 2) + "ms");
 };
 
 var convertHour = function() {
 	var c = performance.now();
-	
-	var hourToConvert = prompt("Enter a positive number or leave blank for a random number");
-	hourToConvert = hourToConvert || random(365 * 24);
 
-	while (isString(hourToConvert)) {
-		hourToConvert = prompt("Enter a positive number or leave blank for a random number");
-		hourToConvert = hourToConvert || random(365 * 24);
+	var hourToConvert = " ";
+
+	while (keystone.isString(hourToConvert)) {
+		hourToConvert = prompt("Enter a postive number or leave blank for random");
+		hourToConvert = hourToConvert || keystone.random(365 * 24);
 	}
-	
+
 	var weekToConvert = hourToConvert / (24 * 7);
-	var week = round(weekToConvert, "down");
+	var week = keystone.round(weekToConvert, "down");
 
 	var dayToConvert = (weekToConvert - week) * 7;
-	var day = round(dayToConvert, "down");
+	var day = keystone.round(dayToConvert, "down");
 
 	hourToConvert = (dayToConvert - day) * 24;
-	var hour = round(hourToConvert, "down");
+	var hour = keystone.round(hourToConvert, "down");
 
 	var minuteToConvert = (hourToConvert - hour) * 60;
-	var minute = round(minuteToConvert, "down");
+	var minute = keystone.round(minuteToConvert, "down");
 
-	var second = round((minuteToConvert - minute) * 60, "nearest", 2);
+	var second = keystone.round((minuteToConvert - minute) * 60, "nearest", 2);
 
 	if (week == 1) {
 		week = week + " week, ";
@@ -150,7 +167,7 @@ var convertHour = function() {
 	document.getElementById('converted').innerHTML = converted[0] + converted[1] + converted[2] + converted[3] + converted[4];
 
 	var d = performance.now();
-	console.log("convertHour() performance: " + round((d - c), "nearest", 2) + "ms")
+	console.log("convertHour() performance: " + keystone.round((d - c), "nearest", 2) + "ms")
 };
 
 var timeTill = function() {
@@ -166,9 +183,9 @@ var timeTill = function() {
 
 	var convertRound = function(num) {
 		if (num > 0) {
-			return round(num, "down");
+			return keystone.round(num, "down");
 		} else if (num < 0) {
-			return round(num, "up");
+			return keystone.round(num, "up");
 		}
 	};
 
@@ -182,7 +199,6 @@ var timeTill = function() {
 	var futureDate = new Date();
 	var currentDate = new Date();
 
-	//var validate = futureDate;
 	while (!isValidDate(futureDate) || (futureDate.getTime() <= currentDate.getTime())) {
 		var date = prompt("Enter the future date, like this: October 13, 2014 11:13:00 (time is in 24 hour format)");
 		var selectDate = date || "random";
@@ -194,46 +210,38 @@ var timeTill = function() {
 			if (month <= 9) {
 				month = "0" + month;
 			}
-			//console.log(month);
 
 			var days = tempDate.getDate();
 			if (days <= 9) {
 				days = "0" + days;
 			}
-			//console.log(days);
 
 			var year = tempDate.getFullYear() + 1;
-			//console.log(year);
 
 			var hours = tempDate.getHours();
 			if (hours <= 9) {
 				hours = "0" + hours;
 			}
-			//console.log(hours);
 
 			var minutes = tempDate.getMinutes();
 			if (minutes <= 9) {
 				minutes = "0" + minutes;
 			}
-			//console.log(minutes);
 
 			var tempDate1 = month + " " + days + ", " + year + " " + hours + ":" + minutes;
 			tempDate1 = new Date(tempDate1);
 
-			var randomisedDate = random(tempDate1.getTime(), currentDate.getTime());
+			var randomisedDate = keystone.random(tempDate1.getTime(), currentDate.getTime());
 			
 			futureDate = new Date(randomisedDate);
-			//validate = futureDate.getTime();
-			//alert(futureDate);
 		} else {
 			futureDate = new Date(date);
 		}                
 	}  
 	
 	var weekToConvert = inWeeks(futureDate, currentDate);
-	//console.log(weekToConvert);
+
 	var week = convertRound(weekToConvert);
-	//console.log(week);
 
 	var dayToConvert = (weekToConvert - week) * 7 ;
 	var day = convertRound(dayToConvert);
@@ -244,7 +252,7 @@ var timeTill = function() {
 	var minuteToConvert = (hourToConvert - hour) * 60;
 	var minute = convertRound(minuteToConvert);
 
-	var second = round((minuteToConvert - minute) * 60, "nearest", 2);
+	var second = keystone.round((minuteToConvert - minute) * 60, "nearest", 2);
 	
 	if (week == 1 ) {
 		week = week + " week, ";
@@ -282,7 +290,7 @@ var timeTill = function() {
 	document.getElementById('timeTill').innerHTML = converted[0] + converted[1] + converted[2] + converted[3] + converted[4];
 
 	var f = performance.now();
-	console.log("timeTill() performance: " + round((f - e), "nearest", 2) + "ms");
+	console.log("timeTill() performance: " + keystone.round((f - e), "nearest", 2) + "ms");
 };
 
 var mathTrick = function() {
@@ -296,18 +304,18 @@ var mathTrick = function() {
 		return total - ((total - diff) / 2);
 	};
 
-	var total = prompt("Think of two numbers. Calculate the total and the difference. Enter the total or leave blank for a random number");
-	var diff = prompt("Enter the difference or leave blank for a random number");
+	var total = " ";
+	var diff = " ";
 
-	total = total || round(random(100));
-	diff = diff || round(random(50));
+	total = total || keystone.round(keystone.random(100));
+	diff = diff || keystone.round(keystone.random(50));
 
-	while (isString(total) || isString(diff)) {
+	while (keystone.isString(total) || keystone.isString(diff)) {
 		total = prompt("Think of two numbers. Calculate the total and the difference. Enter the total or leave blank for a random number");
-		total = total || round(random(100));
+		total = total || keystone.round(keystone.random(100));
 
 		diff = prompt("Enter the difference or leave blank for a random number");
-		diff = diff || round(random(50));
+		diff = diff || keystone.round(keystone.random(50));
 	}
 
 	var numbers = [num1(total, diff), num2(total, diff)];
@@ -317,7 +325,7 @@ var mathTrick = function() {
 	document.getElementById('guess').innerHTML = guess;
 
 	var h = performance.now();
-	console.log("mathTrick() performance: " + round((h - g), "nearest", 2) + "ms");
+	console.log("mathTrick() performance: " + keystone.round((h - g), "nearest", 2) + "ms");
 };
 
 var denaryToBinary = function() {
@@ -333,12 +341,11 @@ var denaryToBinary = function() {
 	var n64;
 	var n128;
 
-	var n = prompt("Enter a positive number or leave empty for a random number");
-	n = n || round(random(255));
+	var n = " ";
 
-	while (isString(n)) {
+	while (keystone.isString(n)) {
 		n = prompt("Enter a positive number or leave empty for a random number");
-		n = n || round(random(255));
+		n = n || keystone.round(keystone.random(255));
 	}
 
 	if (n > 255) {
@@ -406,7 +413,7 @@ var denaryToBinary = function() {
 		document.getElementById('binary').innerHTML = binary[0] + binary[1] + binary[2] + binary[3] + " " + binary[4] + binary[5] + binary[6] + binary[7];
 
 		var j = performance.now();
-		console.log("denaryToBinary() performance: " + round((j - i), "nearest", 2) + "ms")
+		console.log("denaryToBinary() performance: " + keystone.round((j - i), "nearest", 2) + "ms")
 	}
 };
 
@@ -418,16 +425,15 @@ var partitions = function() {
 	};
 
 	var sqrt = function(num) {
-		return Math.sqrt(num);
+		return keystone.approxSqrt(num);
 	};
 
 	//https://www.desmos.com/calculator/yo526tkuvu
-	var num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
-	num = num || round(random(Math.pow(10, 4.884042141949543225365459875320084393024444580078125)));
+	var num = " ";
 
 	while (isString(num)) {
 		num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
-		num = num || round(random(Math.pow(10, 4.884042141949543225365459875320084393024444580078125)));
+		num = num || keystone.round(keystone.random(Math.pow(10, 4.884042141949543225365459875320084393024444580078125)));
 	}
 
 	var part1 = 4 * num * sqrt(3);
@@ -435,10 +441,10 @@ var partitions = function() {
 
 	var result = (1 / part1) * exp(part2);
 
-	document.getElementById('partitions').innerHTML = num + " has " + round(result) + " partitions";
+	document.getElementById('partitions').innerHTML = num + " has " + keystone.round(result) + " partitions";
 
 	var l = performance.now();
-	console.log("partitions() performance: " + round((l - k), "nearest", 2) + "ms");
+	console.log("partitions() performance: " + keystone.round((l - k), "nearest", 2) + "ms");
 };
 
 var factorableQuadratic = function() {
@@ -478,19 +484,19 @@ var factorableQuadratic = function() {
 	var d = 0;
 
 	while (a === 0) {
-		a = round(random(5, -5));
+		a = keystone.round(keystone.random(5, -5));
 	}
 
 	while (b === 0) {
-		b = round(random(15, -15));
+		b = keystone.round(keystone.random(15, -15));
 	}
 
 	while (c === 0) {
-		c = round(random(5, -5));
+		c = keystone.round(keystone.random(5, -5));
 	}
 
 	while (d === 0) {
-		d = round(random(15, -15));
+		d = keystone.round(keystone.random(15, -15));
 	}
 
 	var aX = xValue4Factored(a);
@@ -509,7 +515,7 @@ var factorableQuadratic = function() {
 	document.getElementById('factorable').innerHTML = quadratic + " to " + factored;
 
 	var n = performance.now();
-	console.log("factorableQuadratic() performance: " + round((n - m), "nearest", 2) + "ms")
+	console.log("factorableQuadratic() performance: " + keystone.round((n - m), "nearest", 2) + "ms")
 };
 
 var medianIQR = function() {
@@ -523,97 +529,73 @@ var medianIQR = function() {
 		}
 	};
 
-	var randomArrayLength = prompt("Enter the length of the array you want to generate or leave empty for a random number");
-	randomArrayLength = randomArrayLength || round(random(15, 5));
+	var randomArrayLength = " ";
 
-	while (isString(randomArrayLength)) {
+	while (keystone.isString(randomArrayLength)) {
 		randomArrayLength = prompt("Enter the length of the array you want to generate or leave empty for a random number");
-		randomArrayLength = randomArrayLength || round(random(15, 5));
+		randomArrayLength = randomArrayLength || keystone.round(keystone.random(15, 5));
 	}
 
-	var randomArrayMax = prompt("Enter the maximum of the array you want to generate or leave empty for a random number");
-	randomArrayMax = randomArrayMax || round(random(15, 10));
+	var randomArrayMax = " ";
 
-	while (isString(randomArrayMax)) {
+	while (keystone.isString(randomArrayMax)) {
 		randomArrayMax = prompt("Enter the maximum of the array you want to generate or leave empty for a random number");
-		randomArrayMax = randomArrayMax || round(random(15, 10));
+		randomArrayMax = randomArrayMax || keystone.round(keystone.random(15, 10));
 	}
 
 	var array = [];
 
 	for (var d = 1; d <= round(randomArrayLength); d++) {
-		array.push(round(random(randomArrayMax), "up", 1));
+		array.push(keystone.round(keystone.random(randomArrayMax), "up", 1));
 	}
 
-	array.sort(sortArrayNumber);
+	array.sort(keystone.sortArrayNumber);
 
-	var q1 = round(array[round(((array.length / 4) - 1), "up")], "nearest", 1);
-	var q3 = round(array[round((((array.length * 3) / 4) - 1), "up")], "nearest", 1);
-	var iqr = round(q3 - q1, "nearest", 1);
+	var q1 = keystone.round(array[keystone.round(((array.length / 4) - 1), "up")], "nearest", 1);
+	var q3 = keystone.round(array[keystone.round((((array.length * 3) / 4) - 1), "up")], "nearest", 1);
+	var iqr = keystone.round(q3 - q1, "nearest", 1);
 
 	var nthValueInArray = (array.length - 1) / 2;
 
 	var median = 0;
 
 	if (isDecimal(nthValueInArray)) {
-		median = round((array[round(nthValueInArray, "down")] + array[round(nthValueInArray, "up")]) / 2, "nearest", 1);
+		median = keystone.round((array[keystone.round(nthValueInArray, "down")] + array[keystone.round(nthValueInArray, "up")]) / 2, "nearest", 1);
 	} else {
-		median = round(array[nthValueInArray], "nearest", 1);
+		median = keystone.round(array[nthValueInArray], "nearest", 1);
 	}
 
-	var maxArray = round(array[array.length - 1],"nearest", 1);
-	var minArray = round(array[0], "nearest", 1);
+	var maxArray = keystone.round(array[array.length - 1],"nearest", 1);
+	var minArray = keystone.round(array[0], "nearest", 1);
 
 	var output = "The median is " + median + ", Q1 is " + q1 + ", Q3 is " + q3 + " and the interquartile range is " + iqr + ". The max is " + maxArray + " and the min is " + minArray;
 
 	document.getElementById('IQR').innerHTML = output;
 
 	var p = performance.now();
-	console.log("medianIQR() performance: " + round((p - o), "nearest", 2) + "ms");
+	console.log("medianIQR() performance: " + keystone.round((p - o), "nearest", 2) + "ms");
 };
 
 var approxSqrt = function() {
 	//https://github.com/ErmiyaEskandary/Slither.io-bot/pull/127
 	var q = performance.now();
 
-	var num = prompt("Enter a number or leave blank for a random number");
-	num = round(Math.abs(num)) || round(random(Math.PI * 100));
+	var num = " ";
 
 	while (isString(num)) {
 		num = prompt("Enter a number or leave blank for a random number");
-		num = round(Math.abs(num)) || round(random(Math.PI * 100));	
+		num = keystone.round(Math.abs(num)) || keystone.round(keystone.random(Math.PI * 100));	
 	}
 
-	var diff = 1;
-	var closestSquare = 1;
-
-	while (diff > 0) {
-		diff = num - (closestSquare * closestSquare);
-		if (diff === 0) {
-			closestSquare++;
-			break;
-		}
-		closestSquare++;
-	}
-
-	//console.log(closestSquare);
-	//console.log(diff);
-
-	closestSquare = closestSquare - 1;
-	//console.log(newClosestSquare);
-
-	diff = num - (closestSquare * closestSquare);
-	//console.log(newDiff);
-
-	var approximate = round(closestSquare + (diff / (closestSquare * 2)), "nearest", 4);
+	var approximate = keystone.round(keystone.approxSqrt(num), "nearest", 4);
 	var actual = Math.sqrt(num);
-	console.log("Actual value " + round(actual, "nearest", 4));
-	var percentOff = round((Math.abs(actual - approximate) / actual) * 100, "nearest", 4);
+	console.log("Actual value " + keystone.round(actual, "nearest", 4));
+	var percentOff = keystone.round((Math.abs(actual - approximate) / actual) * 100, "nearest", 4);
 
 	document.getElementById('approxSqrt').innerHTML = "The approximate square root of " + num + " is " + approximate + " and it was " + percentOff + "% off the real value"; 
 
 	var r = performance.now();
-	console.log("approxSqrt() performance: " + round((r - q), "nearest", 2) + "ms");	
+	console.log("approxSqrt() performance: " + keystone.round((r - q), "nearest", 2) + "ms");
 };
 
 var normalDistribution = function() {
@@ -646,44 +628,44 @@ var normalDistribution = function() {
 	};
 
 	var val = "foo";
-	while (isString(val)) {
+	while (keystone.isString(val)) {
 		val = prompt("Enter the value for the probability or leave blank for a random number");
-		val = val || random(Math.PI * 100);
+		val = val || keystone.random(Math.PI * 100);
 	}
 
 	var mean = "foo";
-	while (isString(mean)) {
+	while (keystone.isString(mean)) {
 		mean = prompt("Enter the mean or leave blank for a random number");
-		mean = mean || random(val);
+		mean = mean || keystone.random(val);
 	}
 
 	var sd = "foo";
-	while (isString(sd)) {
+	while (keystone.isString(sd)) {
 		sd = prompt("Enter the standard deviation or leave blank for a random number");
-		sd = sd || random(val, val / 4);
+		sd = sd || keystone.random(val, val / 4);
 	} 
 
-	var result = round(calculate(val, mean, sd), "nearest", 4);
+	var result = keystone.round(calculate(val, mean, sd), "nearest", 4);
 
-	val = round(val, "nearest", 2);
-	mean = round(mean, "nearest", 2);
-	var sdSquared = round(sd * sd, "nearest", 2);
+	val = keystone.round(val, "nearest", 2);
+	mean = keystone.round(mean, "nearest", 2);
+	var sdSquared = keystone.round(sd * sd, "nearest", 2);
 
 	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + sdSquared + ") P(X < " + val + ") = " + result;
-	console.log("Standard Deviation: " + round(sd, "nearest", 2));
+	console.log("Standard Deviation: " + keystone.round(sd, "nearest", 2));
 
 	var t = performance.now();
-	console.log("normalDistribution() performance: " + round(t - s, "nearest", 2) + "ms");
+	console.log("normalDistribution() performance: " + keystone.round(t - s, "nearest", 2) + "ms");
 };
 
 /*
 TODO List - 
 1. Enhancement {
 	a. Random val below mean (may need to rearrange order of execution)
-		i. Randomise mean = random(Math.pi * 100);
-	   ii. Randomise sd suggestion = random(mean / 10);
-	  iii. Randomise val = random(mean + (sd * 4), mean - (sd * 4));
-	   iv. In the above order
+		i. 		Randomise mean = random(Math.pi * 100);
+		ii. 	Randomise sd suggestion = random(mean / 10);
+		iii. 	Randomise val = random(mean + (sd * 4), mean - (sd * 4));
+		iv. 	In the above order
 }
 2. None
 */
