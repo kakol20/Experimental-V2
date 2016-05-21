@@ -582,12 +582,14 @@ var approxSqrt = function() {
 		num = keystone.round(Math.abs(num)) || keystone.round(keystone.random(Math.PI * 100));	
 	}
 
-	var approximate = keystone.round(keystone.approximateSqrt(num), "nearest", 4);
+	var approximate = keystone.approximateSqrt(num);
+	
 	var actual = Math.sqrt(num);
 	console.log("Actual value " + keystone.round(actual, "nearest", 4));
+	
 	var percentOff = keystone.round((Math.abs(actual - approximate) / actual) * 100, "nearest", 4);
 
-	document.getElementById('approxSqrt').innerHTML = "The approximate square root of " + num + " is " + approximate + " and it was " + percentOff + "% off the real value"; 
+	document.getElementById('approxSqrt').innerHTML = "The approximate square root of " + num + " is " + keystone.round(approximate, "nearest", 4) + " and it was " + percentOff + "% off the real value"; 
 
 	var r = performance.now();
 	console.log("approxSqrt() performance: " + keystone.round((r - q), "nearest", 2) + "ms");
