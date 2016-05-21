@@ -622,23 +622,23 @@ var normalDistribution = function() {
 		return prob;
 	};
 
-	var val = "foo";
-	while (keystone.isString(val)) {
-		val = prompt("Enter the value for the probability or leave blank for a random number");
-		val = val || keystone.random(Math.PI * 100);
-	}
-
 	var mean = "foo";
 	while (keystone.isString(mean)) {
 		mean = prompt("Enter the mean or leave blank for a random number");
-		mean = mean || keystone.random(val);
+		mean = mean || keystone.random(Math.PI * 100);
 	}
 
 	var sd = "foo";
 	while (keystone.isString(sd)) {
 		sd = prompt("Enter the standard deviation or leave blank for a random number");
-		sd = sd || keystone.random(val, val / 4);
-	} 
+		sd = sd || keystone.random(mean / 10);
+	}
+
+	var val = "foo";
+	while (keystone.isString(val)) {
+		val = prompt("Enter the value for P(X < x) or leave blank for a random number");
+		val = val || keystone.random(mean + (sd * 4), mean - (sd * 4))
+	}
 
 	var result = keystone.round(calculate(val, mean, sd), "nearest", 4);
 
@@ -646,7 +646,7 @@ var normalDistribution = function() {
 	mean = keystone.round(mean, "nearest", 2);
 	var sdSquared = keystone.round(sd * sd, "nearest", 2);
 
-	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + sdSquared + ") P(X < " + val + ") = " + result;
+	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + sdSquared + ") => P(X < " + val + ") = " + result;
 	console.log("Standard Deviation: " + keystone.round(sd, "nearest", 2));
 
 	var t = performance.now();
@@ -656,12 +656,7 @@ var normalDistribution = function() {
 /*
 TODO List - 
 1. Enhancement {
-	a. Random val below mean (may need to rearrange order of execution) {
-		i.	Randomise mean = random(Math.pi * 100);
-		ii.	Randomise sd suggestion = random(mean / 10);
-		iii.Randomise val = random(mean + (sd * 4), mean - (sd * 4));
-		iv.	In the above order
-	}
+	a. None
 }
 2. None
 */
