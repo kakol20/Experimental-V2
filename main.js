@@ -45,7 +45,7 @@ var keystone = (function() {
 					closestSquare++;
 				}
 			}
-			
+
 			diff = num - (closestSquare * closestSquare);
 			return closestSquare + (diff / (closestSquare * 2));
 		},
