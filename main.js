@@ -44,7 +44,7 @@ var keystone = (function() {
 
 			closestSquare = closestSquare - 1;
 			diff = num - (closestSquare * closestSquare);
-			return closestSquare + (diff / closestSquare * 2);
+			return closestSquare + (diff / (closestSquare * 2));
 		},
 
 		sortArrayNumber: function(a, b) {
