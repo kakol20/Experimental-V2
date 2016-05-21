@@ -442,7 +442,7 @@ var partitions = function() {
 	var result = (1 / part1) * exp(part2);
 	var resulta = (1 / part1a) * exp(part2a)
 
-	console.log("Result using Math.sqrt result: " + resulta)
+	console.log("Result using Math.sqrt result: " + keystone.round(resulta, "nearest", 4));
 	var percentOff = (Math.abs(result - resulta) / resulta) * 100;
 	console.log("Percent off: " + keystone.round(percentOff, "nearest", 4));
 
