@@ -434,9 +434,17 @@ var partitions = function() {
 	}
 
 	var part1 = 4 * num * sqrt(3);
+	var part1a = 4 * num * Math.sqrt(3);
+	
 	var part2 = Math.PI * sqrt((2 * num) / 3);
+	var part2a = Math.PI * Math.sqrt((2 * num) / 3);
 
 	var result = (1 / part1) * exp(part2);
+	var resulta = (1 / part1a) * exp(part2a)
+
+	console.log("Result using Math.sqrt result: " + resulta)
+	var percentOff = (Math.abs(result - resulta) / resulta) * 100;
+	console.log("Percent off: " + keystone.round(percentOff, "nearest", 4));
 
 	document.getElementById('partitions').innerHTML = num + " has " + keystone.round(result) + " partitions";
 
