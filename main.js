@@ -30,21 +30,28 @@ var keystone = (function() {
 		},
 
 		approximateSqrt: function(num) {
-			var diff = 1;
+			var diff = num;
 			var closestSquare = 1;
 
-			while (diff > 0) {
+			while (true) {
 				diff = num - (closestSquare * closestSquare);
+				
 				if (diff === 0) {
-					closestSquare++;
 					break;
+				} else if (diff < 0) {
+					closestSquare--;
+					break;
+				} else {
+					closestSquare++;
 				}
-				closestSquare++;
 			}
 
-			closestSquare = closestSquare - 1;
 			diff = num - (closestSquare * closestSquare);
-			return closestSquare + (diff / closestSquare * 2);
+			return closestSquare + (diff / (closestSquare * 2));
+		},
+
+		sortArrayNumber: function(a, b) {
+			return a - b;
 		}
 	};
 })();
@@ -415,7 +422,7 @@ var partitions = function() {
 	};
 
 	var sqrt = function(num) {
-		return keystone.approximateSqrt(num);
+		return Math.sqrt(num);
 	};
 
 	//https://www.desmos.com/calculator/yo526tkuvu
@@ -427,9 +434,17 @@ var partitions = function() {
 	}
 
 	var part1 = 4 * num * sqrt(3);
+	//var part1a = 4 * num * Math.sqrt(3);
+	
 	var part2 = Math.PI * sqrt((2 * num) / 3);
+	//var part2a = Math.PI * Math.sqrt((2 * num) / 3);
 
 	var result = (1 / part1) * exp(part2);
+	//var resulta = (1 / part1a) * exp(part2a);
+
+	//console.log("Result using Math.sqrt result: " + keystone.round(resulta, "nearest", 4));
+	//var percentOff = (Math.abs(result - resulta) / resulta) * 100;
+	//console.log("Percent off: " + keystone.round(percentOff, "nearest", 4));
 
 	document.getElementById('partitions').innerHTML = num + " has " + keystone.round(result) + " partitions";
 
@@ -541,7 +556,7 @@ var medianIQR = function() {
 		array.push(keystone.round(keystone.random(randomArrayMax), "up", 1));
 	}
 
-	array.sort(sortArrayNumber);
+	array.sort(keystone.sortArrayNumber);
 
 	var q1 = keystone.round(array[keystone.round(((array.length / 4) - 1), "up")], "nearest", 1);
 	var q3 = keystone.round(array[keystone.round((((array.length * 3) / 4) - 1), "up")], "nearest", 1);
@@ -578,12 +593,14 @@ var approxSqrt = function() {
 		num = keystone.round(Math.abs(num)) || keystone.round(keystone.random(Math.PI * 100));	
 	}
 
-	var approximate = keystone.round(keystone.approximateSqrt(num), "nearest", 4);
+	var approximate = keystone.approximateSqrt(num);
+	
 	var actual = Math.sqrt(num);
 	console.log("Actual value " + keystone.round(actual, "nearest", 4));
+	
 	var percentOff = keystone.round((Math.abs(actual - approximate) / actual) * 100, "nearest", 4);
 
-	document.getElementById('approxSqrt').innerHTML = "The approximate square root of " + num + " is " + approximate + " and it was " + percentOff + "% off the real value"; 
+	document.getElementById('approxSqrt').innerHTML = "The approximate square root of " + num + " is " + keystone.round(approximate, "nearest", 4) + " and it was " + percentOff + "% off the real value"; 
 
 	var r = performance.now();
 	console.log("approxSqrt() performance: " + keystone.round((r - q), "nearest", 2) + "ms");
@@ -618,23 +635,23 @@ var normalDistribution = function() {
 		return prob;
 	};
 
-	var val = "foo";
-	while (keystone.isString(val)) {
-		val = prompt("Enter the value for the probability or leave blank for a random number");
-		val = val || keystone.random(Math.PI * 100);
-	}
-
 	var mean = "foo";
 	while (keystone.isString(mean)) {
 		mean = prompt("Enter the mean or leave blank for a random number");
-		mean = mean || keystone.random(val);
+		mean = mean || keystone.random(Math.PI * 100);
 	}
 
 	var sd = "foo";
 	while (keystone.isString(sd)) {
 		sd = prompt("Enter the standard deviation or leave blank for a random number");
-		sd = sd || keystone.random(val, val / 4);
-	} 
+		sd = sd || keystone.random(mean / 10);
+	}
+
+	var val = "foo";
+	while (keystone.isString(val)) {
+		val = prompt("Enter the value for P(X < x) or leave blank for a random number");
+		val = val || keystone.random(mean + (sd * 4), mean - (sd * 4))
+	}
 
 	var result = keystone.round(calculate(val, mean, sd), "nearest", 4);
 
@@ -642,7 +659,7 @@ var normalDistribution = function() {
 	mean = keystone.round(mean, "nearest", 2);
 	var sdSquared = keystone.round(sd * sd, "nearest", 2);
 
-	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + sdSquared + ") P(X < " + val + ") = " + result;
+	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + sdSquared + ") => P(X < " + val + ") = " + result;
 	console.log("Standard Deviation: " + keystone.round(sd, "nearest", 2));
 
 	var t = performance.now();
@@ -652,12 +669,7 @@ var normalDistribution = function() {
 /*
 TODO List - 
 1. Enhancement {
-	a. Random val below mean (may need to rearrange order of execution) {
-		i.	Randomise mean = random(Math.pi * 100);
-		ii.	Randomise sd suggestion = random(mean / 10);
-		iii.Randomise val = random(mean + (sd * 4), mean - (sd * 4));
-		iv.	In the above order
-	}
+	a. None
 }
 2. None
 */
