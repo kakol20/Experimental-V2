@@ -46,12 +46,8 @@ var keystone = (function() {
 				}
 			}
 
-			if (num === 3) {
-				return 1.5;
-			} else {
-				diff = num - (closestSquare * closestSquare);
-				return closestSquare + (diff / (closestSquare * 2));
-			}
+			diff = num - (closestSquare * closestSquare);
+			return closestSquare + (diff / (closestSquare * 2));
 		},
 
 		sortArrayNumber: function(a, b) {
