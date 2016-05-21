@@ -30,19 +30,22 @@ var keystone = (function() {
 		},
 
 		approximateSqrt: function(num) {
-			var diff = 1;
+			var diff = num;
 			var closestSquare = 1;
 
-			while (diff > 0) {
+			while (true) {
 				diff = num - (closestSquare * closestSquare);
+				
 				if (diff === 0) {
-					closestSquare++;
 					break;
+				} else if (diff < 0) {
+					closestSquare--;
+					break;
+				} else {
+					closestSquare++;
 				}
-				closestSquare++;
 			}
 
-			closestSquare = closestSquare - 1;
 			diff = num - (closestSquare * closestSquare);
 			return closestSquare + (diff / (closestSquare * 2));
 		},
