@@ -430,7 +430,6 @@ var partitions = function() {
 
 	while (keystone.isString(num)) {
 		num = prompt("Enter a number you want to find the approximate number of partitions of, or leave empty for a random number");
-		num = num || keystone.round(keystone.random(Math.pow(10, 4)));
 	}
 
 	var part1 = 4 * num * sqrt(3);
