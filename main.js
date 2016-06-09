@@ -304,9 +304,6 @@ var mathTrick = function() {
 	var total = "foo";
 	var diff = "foo";
 
-	total = total || keystone.round(keystone.random(100));
-	diff = diff || keystone.round(keystone.random(50));
-
 	while (keystone.isString(total) || keystone.isString(diff)) {
 		total = prompt("Think of two numbers. Calculate the total and the difference. Enter the total or leave blank for a random number");
 		total = total || keystone.round(keystone.random(100));
@@ -644,7 +641,12 @@ var normalDistribution = function() {
 	var sd = "foo";
 	while (keystone.isString(sd)) {
 		sd = prompt("Enter the standard deviation or leave blank for a random number");
-		sd = sd || keystone.random(mean / 10);
+
+		if (mean === 0) {
+			sd = sd || keystone.random(1);
+		} else {
+			sd = sd || keystone.random(mean / 10);
+		}
 	}
 
 	var val = "foo";
