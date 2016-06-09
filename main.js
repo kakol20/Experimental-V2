@@ -645,7 +645,12 @@ var normalDistribution = function() {
 	var sd = "foo";
 	while (keystone.isString(sd)) {
 		sd = prompt("Enter the standard deviation or leave blank for a random number");
-		sd = sd || keystone.random(Math.PI * 10);
+		
+		if (mean === 0) {
+			sd = sd || keystone.random(Math.PI);
+		} else {
+			sd = sd || keystone.random(mean / 10);
+		}
 	}
 
 	var val = "foo";
