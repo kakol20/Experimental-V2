@@ -647,7 +647,9 @@ var normalDistribution = function() {
 		sd = prompt("Enter the standard deviation or leave blank for a random number");
 		
 		if (mean > 0) {
-			sd = sd || keystone.random(mean / 10);
+			sd = sd || keystone.random(Math.abs(mean) / 10);
+		} else if (mean < 0) {
+			sd = sd || keystone.random(Math.abs(mean) / 10);
 		} else {
 			sd = sd || 1;
 		}
