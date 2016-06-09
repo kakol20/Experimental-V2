@@ -52,6 +52,10 @@ var keystone = (function() {
 
 		sortArrayNumber: function(a, b) {
 			return a - b;
+		},
+
+		removeFromArray: function(array, index) {
+			array.splice(index, 1);
 		}
 	};
 })();
@@ -303,9 +307,6 @@ var mathTrick = function() {
 
 	var total = "foo";
 	var diff = "foo";
-
-	total = total || keystone.round(keystone.random(100));
-	diff = diff || keystone.round(keystone.random(50));
 
 	while (keystone.isString(total) || keystone.isString(diff)) {
 		total = prompt("Think of two numbers. Calculate the total and the difference. Enter the total or leave blank for a random number");
@@ -644,23 +645,32 @@ var normalDistribution = function() {
 	var sd = "foo";
 	while (keystone.isString(sd)) {
 		sd = prompt("Enter the standard deviation or leave blank for a random number");
-		sd = sd || keystone.random(mean / 10);
+		
+		if (mean > 0) {
+			sd = sd || keystone.random(Math.abs(mean) / 10);
+		} else if (mean < 0) {
+			//The standard deviation must never be a negative number
+			sd = sd || keystone.random(Math.abs(mean) / 10);
+		} else {
+			sd = sd || 1;
+		}
 	}
 
 	var val = "foo";
 	while (keystone.isString(val)) {
 		val = prompt("Enter the value for P(X < x) or leave blank for a random number");
-		val = val || keystone.random(mean + (sd * 4), mean - (sd * 4))
+		val = val || keystone.random(mean + (sd * 4), mean - (sd * 4));
 	}
 
-	var result = keystone.round(calculate(val, mean, sd), "nearest", 4);
+	var result = keystone.round(calculate(val, mean, sd), "down", 4);
 
 	val = keystone.round(val, "nearest", 2);
-	mean = keystone.round(mean, "nearest", 2);
+	mean = keystone.round(mean, "up", 2);
 	var sdSquared = keystone.round(sd * sd, "nearest", 2);
 
-	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + sdSquared + ") => P(X < " + val + ") = " + result;
+	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + sdSquared + ") --> P(X < " + val + ") = " + result;
 	console.log("Standard Deviation: " + keystone.round(sd, "nearest", 2));
+	console.log("P(Z < " + keystone.round((val - mean) / sd, "nearest", 2) + ")");
 
 	var t = performance.now();
 	console.log("normalDistribution() performance: " + keystone.round(t - s, "nearest", 2) + "ms");
