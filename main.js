@@ -650,12 +650,13 @@ var normalDistribution = function() {
 			sd = sd || 1;
 		} else {
 			sd = sd || keystone.random(mean / 10);
+		}
 	}
 
 	var val = "foo";
 	while (keystone.isString(val)) {
 		val = prompt("Enter the value for P(X < x) or leave blank for a random number");
-		val = val || keystone.random(mean + (sd * 4), mean - (sd * 4))
+		val = val || keystone.random(mean + (sd * 4), mean - (sd * 4));
 	}
 
 	var result = keystone.round(calculate(val, mean, sd), "nearest", 4);
