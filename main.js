@@ -658,7 +658,7 @@ var normalDistribution = function() {
 	var result = keystone.round(calculate(val, mean, sd), "nearest", 4);
 
 	val = keystone.round(val, "nearest", 2);
-	mean = keystone.round(mean, "nearest", 2);
+	mean = keystone.round(mean, "up", 2);
 	var sdSquared = keystone.round(sd * sd, "nearest", 2);
 
 	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + sdSquared + ") --> P(X < " + val + ") = " + result;
