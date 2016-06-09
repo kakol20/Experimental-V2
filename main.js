@@ -662,7 +662,7 @@ var normalDistribution = function() {
 		val = val || keystone.random(mean + (sd * 4), mean - (sd * 4));
 	}
 
-	var result = keystone.round(calculate(val, mean, sd), "nearest", 4);
+	var result = keystone.round(calculate(val, mean, sd), "down", 4);
 
 	val = keystone.round(val, "nearest", 2);
 	mean = keystone.round(mean, "up", 2);
