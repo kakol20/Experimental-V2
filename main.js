@@ -649,6 +649,7 @@ var normalDistribution = function() {
 		if (mean > 0) {
 			sd = sd || keystone.random(Math.abs(mean) / 10);
 		} else if (mean < 0) {
+			//The standard deviation must never be a negative number
 			sd = sd || keystone.random(Math.abs(mean) / 10);
 		} else {
 			sd = sd || 1;
