@@ -52,6 +52,10 @@ var keystone = (function() {
 
 		sortArrayNumber: function(a, b) {
 			return a - b;
+		},
+
+		removeFromArray: function(array, index) {
+			array.splice(index, 1);
 		}
 	};
 })();
