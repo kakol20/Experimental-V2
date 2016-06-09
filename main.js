@@ -646,10 +646,10 @@ var normalDistribution = function() {
 	while (keystone.isString(sd)) {
 		sd = prompt("Enter the standard deviation or leave blank for a random number");
 		
-		if (mean === 0) {
-			sd = sd || 1;
-		} else {
+		if (mean > 0) {
 			sd = sd || keystone.random(mean / 10);
+		} else {
+			sd = sd || 1;
 		}
 	}
 
