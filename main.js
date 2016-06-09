@@ -643,7 +643,7 @@ var normalDistribution = function() {
 		sd = prompt("Enter the standard deviation or leave blank for a random number");
 
 		if (mean === 0) {
-			sd = sd || keystone.random(1);
+			sd = sd || keystone.random(10);
 		} else {
 			sd = sd || keystone.random(mean / 10);
 		}
@@ -661,7 +661,7 @@ var normalDistribution = function() {
 	mean = keystone.round(mean, "nearest", 2);
 	var sdSquared = keystone.round(sd * sd, "nearest", 2);
 
-	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + sdSquared + ") => P(X < " + val + ") = " + result;
+	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + sdSquared + ") --> P(X < " + val + ") = " + result;
 	console.log("Standard Deviation: " + keystone.round(sd, "nearest", 2));
 
 	var t = performance.now();
