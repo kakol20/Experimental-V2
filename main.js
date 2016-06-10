@@ -84,16 +84,16 @@ var getPrimes = function() {
 	};
 	//Somehow using return true; and return false; doesn't work
 
-	var min = "foo";
-	while (keystone.isString(min)) {
-		min = prompt("Enter a positive number for the minimum or leave blank for a random number");
-		min = keystone.round(min, "up") || keystone.round(keystone.random(max / 2));
-	}
-
 	var max = "foo";
 	while (keystone.isString(max)) {
 		max = prompt("Enter a positive number for the maximum or leave blank for a random number");
 		max = keystone.round(max, "down") || keystone.round(keystone.random(Math.PI * 100, 50));
+	}
+
+	var min = "foo";
+	while (keystone.isString(min)) {
+		min = prompt("Enter a positive number for the minimum or leave blank for a random number");
+		min = keystone.round(min, "up") || keystone.round(keystone.random(max / 2));
 	}
 
 	var primes = [];
