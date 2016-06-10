@@ -69,7 +69,7 @@ var getPrimes = function() {
 
 	var isPrime = function(num) {
 		for (var i = 2; i <= Math.sqrt(num); i++) {
-			if ((num % a) === 0) {
+			if ((num % i) === 0) {
 				return 0;
 			}
 		}
