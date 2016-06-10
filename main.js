@@ -56,7 +56,9 @@ var keystone = (function() {
 
 		//Just for reference
 		removeFromArray: function(array, index) {
-			array.splice(index, 1);
+			if (index > -1) {
+				array.splice(index, 1);
+			}
 		}
 	};
 })();
