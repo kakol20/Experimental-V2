@@ -54,6 +54,7 @@ var keystone = (function() {
 			return a - b;
 		},
 
+		//Just for reference
 		removeFromArray: function(array, index) {
 			array.splice(index, 1);
 		}
@@ -100,8 +101,11 @@ var getPrimes = function() {
 		var index = primes.indexOf(i);
 
 		if (index > -1) {
-			keystone.removeFromArray(primes, index);
+			primes.splice(index, 1);
 		}
+	}
+	if (primes.indexOf(0) > -1) {
+		primes.splice(index, 1);
 	}
 
 	var output;
