@@ -98,18 +98,10 @@ var getPrimes = function() {
 
 	var primes = [];
 	for (var i = min; i <= max; i++) {
-		if ( i > 0) {
+		if ( i > 1) {
 			if (isPrime(i) === 1) {
 				primes.push[i];
 			}
-		}
-	}
-
-	for (var i = -1; i <= 1; i++) {
-		var index = primes.indexOf(i);
-
-		if (index > -1) {
-			primes.splice(index, 1);
 		}
 	}
 
