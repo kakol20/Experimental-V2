@@ -52,6 +52,7 @@ var keystone = (function() {
 
 		sortArrayNumber: function(a, b) {
 			return a - b;
+			//array.sort(keystone.sortArrayNumber) - for reference
 		},
 
 		//Just for reference
@@ -74,33 +75,41 @@ var getPrimes = function() {
 		if (num > 0) {
 			for (var i = 2; i <= Math.sqrt(num); i++) {
 				if ((num % i) === 0) {
-					return 0;
+					return "false";
 				}
 			}
-			return 1;			
+			return "true";			
 		} else {
-			return 0;
+			return "false";
 		}
 	};
 	//Somehow using return true; and return false; doesn't work
 
-	var max = "foo";
-	while (keystone.isString(max)) {
-		max = prompt("Enter a positive number for the maximum or leave blank for a random number");
-		max = keystone.round(max, "down") || keystone.round(keystone.random(Math.PI * 100, 50));
-	}
-
 	var min = "foo";
 	while (keystone.isString(min)) {
-		min = prompt("Enter a positive number for the minimum or leave blank for a random number");
-		min = keystone.round(min, "up") || keystone.round(keystone.random(max / 2));
+		min = prompt("Enter a minimum or leave blank for a random number");
+		min = min || keystone.random(Math.PI * 10);
 	}
+	min = keystone.round(min, "up");
+
+	var max = "foo";
+	while (keystone.isString(max)) {
+		max = prompt("Enter a maximum or leave blank for a random number");
+		max = max || keystone.random(Math.PI * 100, min);
+	}
+	max = keystone.round(max, "down");
+
+	var minNmax = [Math.abs(min), Math.abs(max)]; //Prime numbers must never be a negative
+	minNmax.sort(keystone.sortArrayNumber);
+
+	min = minNmax[0];
+	max = minNmax[1];
 
 	var primes = [];
 	for (var i = min; i <= max; i++) {
-		if ( i > 1) {
-			if (isPrime(i) === 1) {
-				primes.push[i];
+		if (i > 1) {
+			if (isPrime(i) === "true") {
+				primes.push(i);
 			}
 		}
 	}
@@ -108,9 +117,9 @@ var getPrimes = function() {
 	var output;
 	for (var i = 0; i < primes.length; i++) {
 		if (i > 0) {
-			output = output + ", " + primes[i];
+			output = output + ", " + primes[i].toString();
 		} else {
-			output = primes[0];
+			output = primes[i].toString();
 		}
 	}
 
@@ -543,10 +552,6 @@ var medianIQR = function() {
 		} else {
 			return true;
 		}
-	};
-
-	var sortArrayNumber = function(a, b) {
-		return a - b;
 	};
 
 	var randomArrayLength = "foo";
