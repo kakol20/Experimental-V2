@@ -124,6 +124,8 @@ var getPrimes = function() {
 	}
 
 	document.getElementById('primes').innerHTML = output;
+	console.log("Min: " + min);
+	console.log("Max: " + max);
 
 	var b = performance.now();
 	console.log("getPrimes() performance: " + keystone.round(b - a, "nearest", 2) + "ms");
