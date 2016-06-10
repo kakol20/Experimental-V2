@@ -71,12 +71,16 @@ var getPrimes = function() {
 	var a = performance.now();
 
 	var isPrime = function(num) {
-		for (var i = 2; i <= Math.sqrt(num); i++) {
-			if ((num % i) === 0) {
-				return 0;
+		if (num > 0) {
+			for (var i = 2; i <= Math.sqrt(num); i++) {
+				if ((num % i) === 0) {
+					return 0;
+				}
 			}
+			return 1;			
+		} else {
+			return 0;
 		}
-		return 1;
 	};
 	//Somehow using return true; and return false; doesn't work
 
@@ -105,9 +109,6 @@ var getPrimes = function() {
 		if (index > -1) {
 			primes.splice(index, 1);
 		}
-	}
-	if (primes.indexOf(0) > -1) {
-		primes.splice(index, 1);
 	}
 
 	var output;
