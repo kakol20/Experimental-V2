@@ -68,7 +68,7 @@ var getPrimes = function() {
 	var a = performance.now();
 
 	var isPrime = function(num) {
-		for (var a = 2; a <= Math.sqrt(num); a++) {
+		for (var i = 2; i <= Math.sqrt(num); i++) {
 			if ((num % a) === 0) {
 				return 0;
 			}
@@ -79,28 +79,37 @@ var getPrimes = function() {
 
 	var max = "foo";
 	while (keystone.isString(max)) {
-		max = prompt("Enter a positive number or leave blank for a random number");
+		max = prompt("Enter a positive number for the maximum or leave blank for a random number");
 		max = max || keystone.round(keystone.random(Math.PI * 100, 50));
 	}
 
-	var primes = [];
-	primes.push(2);
+	var min = "foo";
+	while (keystone.isString(min)) {
+		min = prompt("Enter a positive number for the minimum or leave blank for a random number");
+		min = min || keystone.round(keystone.random(max / 2));
+	}
 
-	for (var b = 3; b <= max; b++) {
-		if (isPrime(b) === 1) {
-			primes.push(b);
+	var primes = [];
+	for (var i = min; i <= max; i++) {
+		if (isPrime(i) === 1) {
+			primes.push(i);
 		}
 	}
 
-	var output = "foo";
+	for (var i = -1; i <= 1; i++) {
+		var index = primes.indexOf(i);
 
-	for (var c = 0; c < primes.length; c++) {
-		if (c === 0){
-			output = primes[c] + ", ";
-		} else if (c === primes.length - 1) {
-			output = output + primes[c];
+		if (index > -1) {
+			keystone.removeFromArray(primes, index);
+		}
+	}
+
+	var output;
+	for (var i = 0; i < primes.length; i++) {
+		if (i > 0) {
+			output = output + ", " + primes[i];
 		} else {
-			output = output + primes[c] + ", ";
+			output = primes[0];
 		}
 	}
 
@@ -553,7 +562,7 @@ var medianIQR = function() {
 
 	var array = [];
 
-	for (var d = 0; d < keystone.round(randomArrayLength); d++) {
+	for (var i = 0; i < keystone.round(randomArrayLength); i++) {
 		array.push(keystone.round(keystone.random(randomArrayMax), "up", 1));
 	}
 
