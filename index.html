@@ -21,6 +21,7 @@
         }
         div {
             font-size: 18px;
+            text-decoration:underline;
         }
     </style>
 
@@ -30,31 +31,51 @@
 <body>
     <h1>EXPERIMENTAL SCRIPTS</h1>
 
+    <form>
+        Max: <input type="number" id="primesMax"> <br>
+        Min: <input type="number" id="primesMin">
+    </form>
     <p>
         <button onclick="getPrimes()">Prime Numbers</button>
         <div id="primes"></div>
     </p>
 
+    <form>
+        Hours to Convert: <input type="number" id="convertedHours">
+    </form>
     <p>
         <button onclick="convertHour()">Convert Decimal Hour</button>
         <div id="converted"></div>
     </p>
 
+    <form>
+        Future Date (like this - October 13, 2014 11:13:00): <input type="text" id="timeTillFuture">
+    </form>
     <p>
         <button onclick="timeTill()">Time Until Future Date</button>
         <div id="timeTill"></div>
     </p>
 
+    <form>
+        Total: <input type="number" id="guessTotal"> <br>
+        Difference: <input type="number" id="guessDiff">
+    </form>
     <p>
         <button onclick="mathTrick()">Guess Numbers Your Thinking Of</button>
         <div id="guess"></div>
     </p>
 
+    <form>
+        Denary to Binary: <input type="number" id="binaryNum">
+    </form>
     <p>
         <button onclick="denaryToBinary()">Convert Denary to Binary</button>
         <div id="binary"></div>
     </p>
 
+    <form>
+        Partitions of: <input type="number" id="partitionsNum">
+    </form>
     <p>
         <button onclick="partitions()">Calculate Approximate Partitions</button>
         <div id="partitions"></div>
@@ -65,16 +86,28 @@
         <div id="factorable"></div>
     </p>
 
+    <forms>
+        Length: <input type="number" id="IQRLength"> <br>
+        Max: <input type="number" id="IQRMax">
+    </forms>
     <p>
         <button onclick="medianIQR()">Calculate Median, Q1, Q2 and IQR</button>
         <div id="IQR"></div>
     </p>
 
+    <form>
+        Approximate Square Root Of: <input type="number" id="approxSqrtNum">
+    </form>
     <p>
         <button onclick="approxSqrt()">Approximate The Square Root</button>
         <div id="approxSqrt"></div>
     </p>
 
+    <form>
+        Mean: <input type="number" id="normalDFMean"> <br>
+        Standard Deviation: <input type="number" id="normaldDFSd"> <br>
+        Value: <input type="number" id="normalDFVal">
+    </form>
     <p>
         <button onclick="normalDistribution()">Normal Distribution Function</button>
         <div id="normalDF"></div>
@@ -91,9 +124,9 @@
             </button>
         </a>
 
-        <a href = "https://github.com/kakol20/Experimental-V2" target="_blank">
+        <a href = "https://github.com/kakol20/Experimental-V2/tree/test" target="_blank">
             <button>
-                Github Page of Master Branch
+                Github Page
             </button>
         </a>
     </p>
