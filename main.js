@@ -55,6 +55,22 @@ var keystone = (function() {
 			//array.sort(keystone.sortArrayNumber) - for reference
 		},
 
+		isPrime: function(num) {
+            if (num === 2) {
+                return "true";
+            } else if (num > 2) {
+                for (var i = 2; i <= Math.sqrt(num); i++) {
+                    if ((num % i) === 0) {
+                        return "false";
+                    }
+                }
+                return "true";
+            } else {
+                return "false";
+            }
+            //Somehow using return true; and return false; doesn't work
+        },
+
 		//Just for reference
 		removeFromArray: function(array, index) {
 			if (index > -1) {
@@ -70,20 +86,6 @@ var reload = function() {
 
 var getPrimes = function() {
 	var a = performance.now();
-
-	var isPrime = function(num) {
-		if (num > 0) {
-			for (var i = 2; i <= Math.sqrt(num); i++) {
-				if ((num % i) === 0) {
-					return "false";
-				}
-			}
-			return "true";			
-		} else {
-			return "false";
-		}
-	};
-	//Somehow using return true; and return false; doesn't work
 
 	var min = "foo";
 	while (keystone.isString(min)) {
@@ -108,7 +110,7 @@ var getPrimes = function() {
 	var primes = [];
 	for (var i = min; i <= max; i++) {
 		if (i > 1) {
-			if (isPrime(i) === "true") {
+			if (keystone.isPrime(i) === "true") {
 				primes.push(i);
 			}
 		}
@@ -663,14 +665,13 @@ var normalDistribution = function() {
 	while (keystone.isString(sd)) {
 		sd = prompt("Enter the standard deviation or leave blank for a random number");
 		
-		if (mean > 0) {
-			sd = sd || keystone.random(Math.abs(mean) / 10);
-		} else if (mean < 0) {
-			//The standard deviation must never be a negative number
-			sd = sd || keystone.random(Math.abs(mean) / 10);
-		} else {
-			sd = sd || 1;
-		}
+		if ((mean > 0) || (mean < 0)) {
+	        //The standard deviation must never be a negative number
+	            sd = sd || keystone.random(Math.abs(mean) / 10);
+	        } else {
+	            sd = sd || 1;
+	        }
+	    }
 	}
 
 	var val = "foo";
