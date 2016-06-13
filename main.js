@@ -388,7 +388,7 @@ var partitions = function() {
 		return Math.sqrt(num);
 	};
 
-	var num = keystone.round(document.getElementById('partitionsNum').value) || keystone.random(100);
+	var num = keystone.round(document.getElementById('partitionsNum').value) || keystone.round(keystone.random(100));
 
 	var part1 = 4 * num * sqrt(3);
 	var part2 = Math.PI * sqrt((2 * num) / 3);
