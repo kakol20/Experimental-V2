@@ -569,7 +569,7 @@ var normalDistribution = function() {
 	mean = keystone.round(mean, "up", 2);
 	//var sdSquared = keystone.round(sd * sd, "nearest", 2);
 
-	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + keystone.round(sd * sd, "nearest", 2) + "²) --> P(X < " + val + ") = " + result;
+	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + keystone.round(sd, "nearest", 2) + "²) --> P(X < " + val + ") = " + result;
 	console.log("Standard Deviation: " + keystone.round(sd, "nearest", 2));
 	console.log("P(Z < " + keystone.round((val - mean) / sd, "nearest", 2) + ")");
 };
