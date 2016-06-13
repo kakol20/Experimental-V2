@@ -388,7 +388,7 @@ var partitions = function() {
 		return Math.sqrt(num);
 	};
 
-	var num = keystone.round(document.getElementById('partitionsNum').value) || keystone.random(100);
+	var num = keystone.round(document.getElementById('partitionsNum').value) || keystone.round(keystone.random(100));
 
 	var part1 = 4 * num * sqrt(3);
 	var part2 = Math.PI * sqrt((2 * num) / 3);
@@ -567,9 +567,9 @@ var normalDistribution = function() {
 
 	val = keystone.round(val, "nearest", 2);
 	mean = keystone.round(mean, "up", 2);
-	var sdSquared = keystone.round(sd * sd, "nearest", 2);
+	//var sdSquared = keystone.round(sd * sd, "nearest", 2);
 
-	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + sdSquared + ") --> P(X < " + val + ") = " + result;
+	document.getElementById('normalDF').innerHTML = "X ~ N(" + mean + ", " + keystone.round(sd, "nearest", 2) + "²) --> P(X < " + val + ") = " + result;
 	console.log("Standard Deviation: " + keystone.round(sd, "nearest", 2));
 	console.log("P(Z < " + keystone.round((val - mean) / sd, "nearest", 2) + ")");
 };
