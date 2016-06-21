@@ -4,7 +4,7 @@ A script where I experiment with different algorithms
 #Test
 [![HTML Preview](https://img.shields.io/badge/Click%20to%20Preview-%20-blue.svg)](http://htmlpreview.github.io/?https://github.com/kakol20/Experimental-V2/blob/master/index.html)
 
-Try this if that button doesn't work:
+Try this if that link doesn't work:
 
 [![HTML Preview](https://img.shields.io/badge/Click%20to%20Preview-%20-blue.svg)](https://htmlpreview.github.io/?https://github.com/kakol20/Experimental-V2/blob/master/index.html)
 
