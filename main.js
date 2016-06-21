@@ -42,11 +42,11 @@ var keystone = (function() {
 			return c + (b / (c * 2));
 		},
 
-		sortDescending: function(a, b) {
-			return a - b
-			//array.sort(keystone.sortDescending) - for reference
-		},
 		sortAscending: function(a, b) {
+			return a - b
+			//array.sort(keystone.sortAscending) - for reference
+		},
+		sortDescending: function(a, b) {
 			return b - a;
 		},
 
@@ -83,7 +83,7 @@ var getPrimes = function() {
 	var max = Math.abs(document.getElementById('primesMax').value) || keystone.random(Math.PI * 100);
 
 	var minNmax = [min, max];
-	minNmax.sort(keystone.sortDescending);
+	minNmax.sort(keystone.sortAscending);
 
 	min = keystone.round(minNmax[0], "up");
 	max = keystone.round(minNmax[1], "down");
@@ -486,7 +486,7 @@ var medianIQR = function() {
 		array.push(keystone.round(keystone.random(randomArrayMax), "up", 1));
 	}
 
-	array.sort(keystone.sortDescending);
+	array.sort(keystone.sortAscending);
 
 	var q1 = keystone.round(array[keystone.round(((array.length / 4) - 1), "up")], "nearest", 1);
 	var q3 = keystone.round(array[keystone.round((((array.length * 3) / 4) - 1), "up")], "nearest", 1);
