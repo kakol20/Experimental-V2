@@ -2,60 +2,60 @@
 
 var keystone = (function() {
 	return {
-		isString: function(obj) {
-			return isNaN(obj);
+		isString: function(a) {
+			return isNaN(a);
 		},
 
-		random: function(high, low) {
-			low = low || 0;
-			var diff = high - low;
-			return (Math.random() * diff) + low;
+		random: function(a, b) {
+			b = b || 0;
+			var c = a - b;
+			return (Math.random() * c) + b;
 		},
 
-		round: function(num, type, decimalPlaces) {
-			type = type || "nearest";
-			decimalPlaces = decimalPlaces || 0;
-			var toDecimalPlaces = function(num) {
-				return num * Math.pow(10, decimalPlaces);
-			};
-			if (type === "down") {
-				return Math.floor(toDecimalPlaces(num)) / Math.pow(10, decimalPlaces);
-			} else if (type === "up") {
-				return Math.ceil(toDecimalPlaces(num)) / Math.pow(10, decimalPlaces);
-			} else if (type === "nearest") {
-				return Math.round(toDecimalPlaces(num)) / Math.pow(10, decimalPlaces);
+		round: function(a, b, c) {
+			b = b || "nearest";
+			c = c || 0;
+			if (b === "down") {
+				return Math.floor(a * Math.pow(10, c)) / Math.pow(10, c);
+			} else if (b === "up") {
+				return Math.ceil(a * Math.pow(10, c)) / Math.pow(10, c);
+			} else if (b === "nearest") {
+				return Math.round(a * Math.pow(10, c)) / Math.pow(10, c);
 			}
 		},
 
-		approximateSqrt: function(num) {
-			var diff = num;
-			var closestSquare = 1;
+		approximateSqrt: function(a) {
+			var b = a;
+			var c = 1;
 			while (true) {
-				diff = num - (closestSquare * closestSquare);
-				if (diff === 0) {
+				b = a - (c * c);
+				if (b === 0) {
 					break;
-				} else if (diff < 0) {
-					closestSquare--;
+				} else if (b < 0) {
+					c--;
 					break;
 				} else {
-					closestSquare++;
+					c++;
 				}
 			}
-			diff = num - (closestSquare * closestSquare);
-			return closestSquare + (diff / (closestSquare * 2));
+			b = a - (c * c);
+			return c + (b / (c * 2));
 		},
 
-		sortArrayNumber: function(a, b) {
+		sortDescending: function(a, b) {
 			return a - b
-			//array.sort(keystone.sortArrayNumber) - for reference
+			//array.sort(keystone.sortDescending) - for reference
+		},
+		sortAscending: function(a, b) {
+			return b - a;
 		},
 
-		isPrime: function(num) {
-			if (num === 2) {
+		isPrime: function(a) {
+			if (a === 2) {
 				return "true";
-			} else if (num > 2) {
-				for (var i = 2; i <= Math.sqrt(num); i++) {
-					if ((num % i) === 0) {
+			} else if (a > 2) {
+				for (var i = 2; i <= Math.sqrt(a); i++) {
+					if ((a % i) === 0) {
 						return "false";
 					}
 				}
@@ -66,9 +66,9 @@ var keystone = (function() {
 		},
 
 		//Just for reference
-		removeFromArray: function(array, index) {
-			if (index > -1) {
-				array.splice(index, 1);
+		removeFromArray: function(a, b) {
+			if (b > -1) {
+				a.splice(b, 1);
 			}
 		}
 	};
@@ -83,7 +83,7 @@ var getPrimes = function() {
 	var max = Math.abs(document.getElementById('primesMax').value) || keystone.random(Math.PI * 100);
 
 	var minNmax = [min, max];
-	minNmax.sort(keystone.sortArrayNumber);
+	minNmax.sort(keystone.sortDescending);
 
 	min = keystone.round(minNmax[0], "up");
 	max = keystone.round(minNmax[1], "down");
@@ -486,7 +486,7 @@ var medianIQR = function() {
 		array.push(keystone.round(keystone.random(randomArrayMax), "up", 1));
 	}
 
-	array.sort(keystone.sortArrayNumber);
+	array.sort(keystone.sortDescending);
 
 	var q1 = keystone.round(array[keystone.round(((array.length / 4) - 1), "up")], "nearest", 1);
 	var q3 = keystone.round(array[keystone.round((((array.length * 3) / 4) - 1), "up")], "nearest", 1);
