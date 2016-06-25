@@ -65,6 +65,17 @@ var keystone = (function() {
 			}
 		},
 
+        removeDupes: function(a) {
+            function b(c) {
+                var d = [];
+                $.each(c, function(i, e) {
+                    if ($.inArray(e, d) == -1) d.push(e);
+                });
+                return d;
+            }
+            return b(a); //Has no use yet
+        }
+
 		//Just for reference
 		removeFromArray: function(a, b) {
 			if (b > -1) {
