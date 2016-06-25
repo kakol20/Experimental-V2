@@ -74,7 +74,7 @@ var keystone = (function() {
                 return d;
             }
             return b(a); //Has no use yet
-        }
+        },
 
 		//Just for reference
 		removeFromArray: function(a, b) {
