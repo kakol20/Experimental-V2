@@ -76,6 +76,25 @@ var keystone = (function() {
             return b(a); //Has no use yet
         },
 
+        countDupes: function(a) {
+            //http://jsfiddle.net/simevidas/bnACW/
+            var b = [], c = [], prev;
+    
+            a.sort();
+            for ( var i = 0; i < a.length; i++ ) {
+                if ( a[i] !== prev ) {
+                    b.push(a[i]);
+                    c.push(1);
+                } else {
+                    c[c.length-1]++;
+                }
+                prev = a[i];
+            }
+            
+            return [b, c];
+            //b = actual values, c = dupe count
+        },
+
 		//Just for reference
 		removeFromArray: function(a, b) {
 			if (b > -1) {
@@ -590,5 +609,5 @@ TODO List -
 1. Enhancement {
 	a. None
 }
-2. None
+2. Mode, Median(Updated Version) and Mean
 */
