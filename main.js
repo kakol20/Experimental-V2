@@ -79,7 +79,6 @@ var keystone = (function() {
         countDupes: function(a) {
             //http://jsfiddle.net/simevidas/bnACW/
             var b = [], c = [], prev;
-    
             a.sort();
             for ( var i = 0; i < a.length; i++ ) {
                 if ( a[i] !== prev ) {
@@ -604,10 +603,83 @@ var normalDistribution = function() {
 	console.log("P(Z < " + keystone.round((val - mean) / sd, "nearest", 2) + ")");
 };
 
+var averages = function() {
+	var isInt = function(a) {
+		if ((a % 1) == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	};
+
+	var mode = function(a) {
+		var b = [];
+        for (var i = 0; i < a.length; i++) {
+            b.push(a[i]);
+        }
+        b = keystone.countDupes(b);
+        var c = [];
+        for (var i = 0; i < b[1].length; i++) {
+            c.push(b[1][i]);
+        } 
+        c.sort(keystone.sortDescending);
+        return b[0][b[1].indexOf(c[0])];
+	};
+
+	var median = function(a) {
+		var b = [];
+		for (var i = 0; i < a.length; i++) {
+			b.push(a[i]);
+		}
+		b.sort(keystone.sortAscending);
+		var c = (b.length - 1) / 2;
+		if (isInt(c)) {
+			return b[c];
+		} else {
+			return (b[keystone.round(c, "down")] + b[keystone.round(c, "up")]) / 2;
+		}
+	};
+
+	var mean = function(a) {
+		var b = 0;
+		for (var i = 0; i < a.length; i++) {
+			b += a[i];
+		}
+		return keystone.round(b / a.length, "nearest", 2);	
+	};
+
+	var max = Math.abs(document.getElementById('averageMax').value) || keystone.round(keystone.random(Math.PI * 10, 10));
+	var min = Math.abs(document.getElementById('averageMin').value) || keystone.round(keystone.random(max, 1));
+	var amount = Math.abs(document.getElementById('averageAmount').value) || keystone.round(keystone.random(Math.PI * 5,5));
+
+	//Can't take similar values
+	while (min == max) { 
+		min = keystone.round(keystone.random(max, 1));
+	}
+
+	//Can't take negative values
+	var neg = [min, max];
+	neg.sort(keystone.sortAscending);
+	min = neg[0];
+	max = neg[1];
+
+	console.log("Max: " + max);
+	console.log("Min: " + min);
+	console.log("Amount: " + amount);
+
+	var list = [];
+	for (var i = 1; i <= amount; i++) {
+		list.push(keystone.round(keystone.random(max, min)));
+	}
+	console.log(list);
+
+	document.getElementById('average').innerHTML = "Mode: " + mode(list) + ". Median: " + median(list) + ". Mean: " + mean(list);
+};
+
 /*
 TODO List - 
 1. Enhancement {
 	a. None
 }
-2. Mode, Median(Updated Version) and Mean
+2. None
 */
