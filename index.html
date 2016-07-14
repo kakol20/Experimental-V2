@@ -26,7 +26,7 @@
     </style>
 
     <!-- jQuery -->
-    <script src="http://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
+    <script   src="http://code.jquery.com/jquery-3.1.0.slim.min.js"   integrity="sha256-cRpWjoSOw5KcyIOaZNo4i6fZ9tKPhYYb6i5T9RSVJG8="   crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="main.js"></script>
 </head>
@@ -114,6 +114,16 @@
     <p>
         <button onclick="normalDistribution()">Normal Distribution Function</button>
         <div id="normalDF"></div>
+    </p>
+
+    <form>
+        Max: <input type="number" id="averageMax"> <br>
+        Min: <input type="number" id="averageMin"> <br>
+        Amount: <input type="number" id="averageAmount">
+    </form>
+    <p>
+        <button onclick="averages()">Mode, Median and Mean</button>
+        <div id="average"></div>
     </p>
 
     <p>
