@@ -69,7 +69,7 @@ var keystone = (function() {
             $.each(a, function(i, c) {
                 if ($.inArray(c, b) == -1) b.push(c);
             });
-            return b;
+            return b; //Has no use yet
         },
 
         countDupes: function(a) {
