@@ -65,11 +65,14 @@ var keystone = (function() {
         },
 
         removeDupes: function(a) {
-            var b = [];
-            $.each(a, function(i, c) {
-                if ($.inArray(c, b) == -1) b.push(c);
-            });
-            return b; //Has no use yet
+            function b(c) {
+                var d = [];
+                $.each(c, function(i, e) {
+                    if ($.inArray(e, d) == -1) d.push(e);
+                });
+                return d;
+            }
+            return b(a); //Has no use yet
         },
 
         countDupes: function(a) {
