@@ -136,6 +136,7 @@ var getPrimes = function() {
     document.getElementById('primes').innerHTML = output;
     console.log("Min: " + min);
     console.log("Max: " + max);
+    console.log("Length: " + primes.length);
 };
 
 var convertHour = function() {
