@@ -340,6 +340,7 @@ var denaryToBinary = function() {
     var n128;
 
     var n = keystone.round(document.getElementById('binaryNum').value) || keystone.round(keystone.random(255));
+    console.log("Number converted to Binary: " + n);
 
     if (n > 255) {
         document.getElementById('binary').innerHTML = "Overflow Error";
@@ -426,8 +427,6 @@ var partitions = function() {
 };
 
 var factorableQuadratic = function() {
-    var m = performance.now();
-
     var plusOrMinus = function(num) {
         if (num > 0) {
             return "+ " + num;
@@ -491,9 +490,6 @@ var factorableQuadratic = function() {
     var quadratic = ac + "x^2 " + adbc + " " + bd;
 
     document.getElementById('factorable').innerHTML = quadratic + " to " + factored;
-
-    var n = performance.now();
-    console.log("factorableQuadratic() performance: " + keystone.round((n - m), "nearest", 2) + "ms");
 };
 
 var medianIQR = function() {
@@ -547,7 +543,7 @@ var approxSqrt = function() {
     var approximate = keystone.approximateSqrt(num);
 
     var actual = Math.sqrt(num);
-    console.log("Actual value " + keystone.round(actual, "nearest", 4));
+    console.log("Actual value: " + keystone.round(actual, "nearest", 4));
 
     var percentOff = keystone.round((Math.abs(actual - approximate) / actual) * 100, "nearest", 4);
 
